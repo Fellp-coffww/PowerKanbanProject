@@ -1,4 +1,4 @@
-package projetointegrador.Entities;
+package projetointegrador.Model.Entities;
 
 public interface Default {
 

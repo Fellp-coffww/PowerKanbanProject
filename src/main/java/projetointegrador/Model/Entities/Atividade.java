@@ -1,6 +1,7 @@
-package projetointegrador.Entities;
+package projetointegrador.Model.Entities;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 /*
  * Copyright (C) 2023 Fellipe Augusto <fellipe.augusto01@gmail.com>
@@ -23,13 +24,16 @@ import java.time.LocalDate;
  *
  * @author Fellipe Augusto <fellipe.augusto01@gmail.com>
  * @date 08/11/2023
- * @brief Class Projeto
+ * @brief Class Atividade
  */
 
 
-public  class Projeto implements Default {
+public class Atividade implements Default {
 
 
+    private ArrayList <Ação> lista = new ArrayList();
+
+    Ação tempAção = new Ação();
     private LocalDate dataDeInicio;
 
     private LocalDate dataDeTermino;
@@ -38,13 +42,39 @@ public  class Projeto implements Default {
 
     private  String nome;
 
+
+    public Atividade(LocalDate dataDeInicio, LocalDate dataDeTermino, int percentual, String nome) {
+        this.dataDeInicio = dataDeInicio;
+        this.dataDeTermino = dataDeTermino;
+        this.percentual = percentual;
+        this.nome = nome;
+    }
+
+    public Atividade() {
+
+    }
+
+    public Ação addinstanceofAção(LocalDate dataDeInicio, LocalDate dataDeTermino, int percentual, String nome){
+
+        Ação acao = new Ação(dataDeInicio,dataDeTermino,percentual,nome);
+
+        return acao;
+    }
+
+
+    public Ação removeinstanceOfAcao(int idx){
+        return lista.get(idx);
+    }
+
     @Override
     public void addObject() {
-
+        lista.add(addinstanceofAção(tempAção.getDataDeInicio(),tempAção.getDataDeTermino(), tempAção.getPercentual(),tempAção.getNome()));
     }
 
     @Override
     public void removeObject() {
+
+
 
     }
 
@@ -55,14 +85,13 @@ public  class Projeto implements Default {
 
     @Override
     public void atualizaPercentualPorData() {
-
         this.percentual =
                 (LocalDate.now().getDayOfMonth()-dataDeInicio.getDayOfMonth()*100) / (dataDeTermino.getDayOfMonth()- dataDeInicio.getDayOfMonth());
-
     }
 
-
+    @Override
     public void atualizaPercentualManual(int percentual) {
+
         this.percentual = percentual;
 
     }
@@ -98,4 +127,5 @@ public  class Projeto implements Default {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
 }
