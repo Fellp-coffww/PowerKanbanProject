@@ -1,16 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="projetointegrador.visual.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="729.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projetointegrador.visual.HelloController">
+   <children>
+      <Pane layoutX="-2.0" layoutY="-2.0" prefHeight="566.0" prefWidth="737.0">
+         <children>
+            <ImageView fitHeight="246.0" fitWidth="455.0" layoutX="232.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../projetointegrador.images/Menu.jpg" />
+               </image>
+            </ImageView>
+            <Text layoutX="262.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Menu">
+               <font>
+                  <Font size="73.0" />
+               </font>
+            </Text>
+            <Button fx:id="bJanela" layoutX="63.0" layoutY="412.0" mnemonicParsing="false" onAction="#onbJanelaClick" prefHeight="25.0" prefWidth="153.0" text="Abrir janela Ação" />
+            <Button fx:id="bJanela1" layoutX="279.0" layoutY="412.0" mnemonicParsing="false" onAction="#onbJanelaClick1" prefHeight="25.0" prefWidth="153.0" text="Abrir janela projeto" />
+            <Button fx:id="bJanela2" layoutX="491.0" layoutY="412.0" mnemonicParsing="false" onAction="#onbJanelaClick2" prefHeight="25.0" prefWidth="153.0" text="Abrir janela atividade" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
