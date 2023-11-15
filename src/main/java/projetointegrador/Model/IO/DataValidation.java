@@ -1,4 +1,4 @@
-package projetointegrador.IO;
+package projetointegrador.Model.IO;
 import java.util.Scanner;
 
 public class DataValidation {
