@@ -17,7 +17,7 @@ public class MainTest {
 
         System.out.println(percent + "%");
 
-
+        System.out.println("JM");
 
 
 
