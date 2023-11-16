@@ -43,10 +43,9 @@ public class Atividade implements Default {
     private  String nome;
 
 
-    public Atividade(LocalDate dataDeInicio, LocalDate dataDeTermino, int percentual, String nome) {
+    public Atividade(LocalDate dataDeInicio, LocalDate dataDeTermino, String nome) {
         this.dataDeInicio = dataDeInicio;
         this.dataDeTermino = dataDeTermino;
-        this.percentual = percentual;
         this.nome = nome;
     }
 
@@ -54,9 +53,9 @@ public class Atividade implements Default {
 
     }
 
-    public Ação addinstanceofAção(LocalDate dataDeInicio, LocalDate dataDeTermino, int percentual, String nome){
+    public Ação addinstanceofAção(LocalDate dataDeInicio, LocalDate dataDeTermino, int percentual, String nome, String departamento){
 
-        Ação acao = new Ação(dataDeInicio,dataDeTermino,percentual,nome);
+        Ação acao = new Ação(dataDeInicio,dataDeTermino,percentual,nome, departamento);
 
         return acao;
     }
@@ -68,7 +67,6 @@ public class Atividade implements Default {
 
     @Override
     public void addObject() {
-        lista.add(addinstanceofAção(tempAção.getDataDeInicio(),tempAção.getDataDeTermino(), tempAção.getPercentual(),tempAção.getNome()));
     }
 
     @Override

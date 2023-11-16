@@ -47,6 +47,10 @@ public  class Projeto  {
 
     }
 
+    public ArrayList<Atividade> retornaAtividade(){
+        return  this.lista;
+    }
+
 
     public Projeto(LocalDate dataDeInicio, LocalDate dataDeTermino, String nome) {
         this.dataDeInicio = dataDeInicio;
@@ -114,6 +118,6 @@ public  class Projeto  {
 
     @Override
     public String toString() {
-        return this.nome + " "+ this.dataDeInicio + " " + this.dataDeTermino + " ";
+        return this.nome;
     }
 }
