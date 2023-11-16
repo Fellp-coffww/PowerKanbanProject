@@ -1,4 +1,4 @@
-package projetointegrador.Test;
+package projetointegrador.Model.Test;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

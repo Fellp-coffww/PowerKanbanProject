@@ -1,4 +1,4 @@
-package projetointegrador.Entities;
+package projetointegrador.Model.Entities;
 
 import java.time.LocalDate;
 
@@ -36,12 +36,15 @@ public class Ação implements Default {
     private String nome;               // Nome da ação
     private int idx;                   // Indice da lista
 
+    private String departamento;
+
     // Construtor para inicializar uma Ação com parâmetros específicos
-    public Ação(LocalDate dataDeInicio, LocalDate dataDeTermino, int percentual, String nome) {
+    public Ação(LocalDate dataDeInicio, LocalDate dataDeTermino, int percentual, String nome, String departamento) {
         this.dataDeInicio = dataDeInicio;    // Inicializa a data de início com o valor fornecido
         this.dataDeTermino = dataDeTermino;  // Inicializa a data de término com o valor fornecido
         this.percentual = percentual;        // Inicializa o percentual com o valor fornecido
         this.nome = nome;                    // Inicializa o nome com o valor fornecido
+        this.departamento = departamento;
     }
 
     // Construtor vazio
@@ -122,5 +125,13 @@ public class Ação implements Default {
 
     public void setIdx(int idx) {
         this.idx = idx;
+    }
+
+    public String getDepartamento() {
+        return departamento;
+    }
+
+    public void setDepartamento(String departamento) {
+        this.departamento = departamento;
     }
 }

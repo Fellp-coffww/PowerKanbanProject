@@ -1,4 +1,4 @@
-package projetointegrador.Enums;
+package projetointegrador.Model.Enums;
 
 public enum Status {
 

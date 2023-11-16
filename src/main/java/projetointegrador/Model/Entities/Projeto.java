@@ -1,4 +1,4 @@
-package projetointegrador.Entities;
+package projetointegrador.Model.Entities;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -24,16 +24,14 @@ import java.util.ArrayList;
  *
  * @author Fellipe Augusto <fellipe.augusto01@gmail.com>
  * @date 08/11/2023
- * @brief Class Atividade
+ * @brief Class Projeto
  */
 
 
-public class Atividade implements Default {
+public  class Projeto  {
 
 
-    ArrayList <Ação> lista = new ArrayList();
-
-    Ação tempAção = new Ação();
+    private ArrayList<Atividade> lista = new ArrayList();
     private LocalDate dataDeInicio;
 
     private LocalDate dataDeTermino;
@@ -43,55 +41,45 @@ public class Atividade implements Default {
     private  String nome;
 
 
-    public Atividade(LocalDate dataDeInicio, LocalDate dataDeTermino, int percentual, String nome) {
+    public void addObject(Atividade atividade) {
+
+        lista.add(atividade);
+
+    }
+
+    public ArrayList<Atividade> retornaAtividade(){
+        return  this.lista;
+    }
+
+
+    public Projeto(LocalDate dataDeInicio, LocalDate dataDeTermino, String nome) {
         this.dataDeInicio = dataDeInicio;
         this.dataDeTermino = dataDeTermino;
-        this.percentual = percentual;
         this.nome = nome;
     }
-
-    public Atividade() {
+    public Projeto() {
 
     }
 
-    public Ação addinstanceofAção(LocalDate dataDeInicio, LocalDate dataDeTermino, int percentual, String nome){
-
-        Ação acao = new Ação(dataDeInicio,dataDeTermino,percentual,nome);
-
-        return acao;
-    }
-
-
-    public Ação removeinstanceOfAcao(int idx){
-        return lista.get(idx);
-    }
-
-    @Override
-    public void addObject() {
-        lista.add(addinstanceofAção(tempAção.getDataDeInicio(),tempAção.getDataDeTermino(), tempAção.getPercentual(),tempAção.getNome()));
-    }
-
-    @Override
     public void removeObject() {
 
-
-
     }
 
-    @Override
+
     public void editObject() {
 
     }
 
-    @Override
+
     public void atualizaPercentualPorData() {
+
         this.percentual =
                 (LocalDate.now().getDayOfMonth()-dataDeInicio.getDayOfMonth()*100) / (dataDeTermino.getDayOfMonth()- dataDeInicio.getDayOfMonth());
+
     }
 
-    @Override
-    public void atualizaPercentualManual(int percentual) {
 
+    public void atualizaPercentualManual(int percentual) {
         this.percentual = percentual;
 
     }
@@ -128,4 +116,8 @@ public class Atividade implements Default {
         this.nome = nome;
     }
 
+    @Override
+    public String toString() {
+        return this.nome;
+    }
 }
