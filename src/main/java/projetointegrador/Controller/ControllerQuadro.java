@@ -1,6 +1,7 @@
 package projetointegrador.Controller;
 
-public class Login {
+public class ControllerQuadro {
+
 
 
 

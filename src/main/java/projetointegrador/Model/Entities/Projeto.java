@@ -3,87 +3,56 @@ package projetointegrador.Model.Entities;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-/*
- * Copyright (C) 2023 Fellipe Augusto <fellipe.augusto01@gmail.com>
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
+// Importações necessárias
 
 /**
- *
- * @author Fellipe Augusto <fellipe.augusto01@gmail.com>
- * @date 08/11/2023
- * @brief Class Projeto
+ * Entidade Projeto que representa um projeto a ser realizado.
  */
+public class Projeto {
 
+    // Lista de atividades associadas a este projeto
+    private ArrayList<Atividade> lista = new ArrayList<>();
+    private LocalDate dataDeInicio; // Data de início do projeto
+    private LocalDate dataDeTermino; // Data de término do projeto
+    private int percentual; // Percentual de conclusão do projeto
+    private String nome; // Nome do projeto
 
-public  class Projeto  {
-
-
-    private ArrayList<Atividade> lista = new ArrayList();
-    private LocalDate dataDeInicio;
-
-    private LocalDate dataDeTermino;
-
-    private int percentual;
-
-    private  String nome;
-
-
+    // Método para adicionar uma atividade à lista de atividades do projeto
     public void addObject(Atividade atividade) {
-
         lista.add(atividade);
-
     }
 
-    public ArrayList<Atividade> retornaAtividade(){
-        return  this.lista;
+    // Método para retornar a lista de atividades do projeto
+    public ArrayList<Atividade> retornaAtividade() {
+        return this.lista;
     }
 
-
+    // Construtor da classe Projeto
     public Projeto(LocalDate dataDeInicio, LocalDate dataDeTermino, String nome) {
         this.dataDeInicio = dataDeInicio;
         this.dataDeTermino = dataDeTermino;
         this.nome = nome;
     }
-    public Projeto() {
 
-    }
+    // Construtor vazio
+    public Projeto() {}
 
-    public void removeObject() {
+    // Métodos não implementados (removeObject, editObject)
 
-    }
-
-
-    public void editObject() {
-
-    }
-
-
+    // Método para atualizar o percentual com base na data atual e nas datas de início e término do projeto
     public void atualizaPercentualPorData() {
-
-        this.percentual =
-                (LocalDate.now().getDayOfMonth()-dataDeInicio.getDayOfMonth()*100) / (dataDeTermino.getDayOfMonth()- dataDeInicio.getDayOfMonth());
-
+        this.percentual = (LocalDate.now().getDayOfMonth() - dataDeInicio.getDayOfMonth() * 100) /
+                (dataDeTermino.getDayOfMonth() - dataDeInicio.getDayOfMonth());
     }
 
-
+    // Método para atualizar o percentual manualmente
     public void atualizaPercentualManual(int percentual) {
         this.percentual = percentual;
-
     }
 
+    // Métodos getters e setters para os atributos do projeto
+
+    // Métodos getters e setters para data de início
     public LocalDate getDataDeInicio() {
         return dataDeInicio;
     }
@@ -92,6 +61,7 @@ public  class Projeto  {
         this.dataDeInicio = dataDeInicio;
     }
 
+    // Métodos getters e setters para data de término
     public LocalDate getDataDeTermino() {
         return dataDeTermino;
     }
@@ -100,6 +70,7 @@ public  class Projeto  {
         this.dataDeTermino = dataDeTermino;
     }
 
+    // Métodos getters e setters para percentual
     public int getPercentual() {
         return percentual;
     }
@@ -108,6 +79,7 @@ public  class Projeto  {
         this.percentual = percentual;
     }
 
+    // Métodos getters e setters para nome
     public String getNome() {
         return nome;
     }
@@ -116,6 +88,7 @@ public  class Projeto  {
         this.nome = nome;
     }
 
+    // Método toString para obter o nome do projeto como representação de string
     @Override
     public String toString() {
         return this.nome;

@@ -1,34 +1,24 @@
 package projetointegrador.visual;
 
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.fxml.FXMLLoader;
-import javafx.collections.*;
 import projetointegrador.Controller.CadastroAcao;
 import projetointegrador.Controller.CadastroAtividade;
 import projetointegrador.Controller.CadastroProjeto;
 import projetointegrador.Model.Entities.Projeto;
 import projetointegrador.Model.Entities.Quadro;
-import projetointegrador.visual.ListsToControler;
-
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 
 public class HelloController {
 
-    private  Quadro quadro = new Quadro();
+    private Quadro quadro = new Quadro(); // Objeto Quadro
 
-
+    // Método getter e setter para o objeto Quadro
     public Quadro getQuadro() {
         return quadro;
     }
@@ -37,10 +27,9 @@ public class HelloController {
         this.quadro = quadro;
     }
 
-
+    // Referências aos elementos da interface gráfica (FXML)
     @FXML
     private ComboBox<Projeto> comBox;
-
 
     @FXML
     private TextField tDatainicio;
@@ -54,85 +43,67 @@ public class HelloController {
     @FXML
     private TextField tNome;
 
-
-
+    // Método acionado ao clicar para abrir a janela de cadastro de Ação
     @FXML
-    protected void onbJanelaClick(){
+    protected void onbJanelaClick() {
         try {
-            // Carregue o FXML da nova janela
             FXMLLoader loader = new FXMLLoader(getClass().getResource("janelaCadastroAcao.fxml"));
             Parent root = loader.load();
 
-            // Passe a lista de projetos para o controlador da nova janela
             CadastroAcao cadastroAcao = loader.getController();
             cadastroAcao.setQuadro(quadro);
 
-            // Crie um novo Stage
             Stage novaJanela = new Stage();
-            novaJanela.setTitle("Cadastro de Projetos");
+            novaJanela.setTitle("Cadastro de Ações");
             novaJanela.setScene(new Scene(root));
-
-            // Mostre a nova janela
             novaJanela.showAndWait();
 
             quadro = cadastroAcao.getQuadro();
         } catch (IOException e) {
-            e.printStackTrace(); // Lida com a exceção adequadamente na sua aplicação
+            e.printStackTrace();
         }
     }
 
+    // Método acionado ao clicar para abrir a janela de cadastro de Projeto
     @FXML
-    protected void onbJanelaClick1(){
+    protected void onbJanelaClick1() {
         try {
-            // Carregue o FXML da nova janela
             FXMLLoader loader = new FXMLLoader(getClass().getResource("janelaCadastroProjeto.fxml"));
             Parent root = loader.load();
 
-            // Passe a lista de projetos para o controlador da nova janela
             CadastroProjeto cadastroProjeto = loader.getController();
             cadastroProjeto.setQuadro(quadro);
 
-            // Crie um novo Stage
             Stage novaJanela = new Stage();
             novaJanela.setTitle("Cadastro de Projetos");
             novaJanela.setScene(new Scene(root));
-
-            // Mostre a nova janela
             novaJanela.showAndWait();
 
             quadro = cadastroProjeto.getQuadro();
         } catch (IOException e) {
-            e.printStackTrace(); // Lida com a exceção adequadamente na sua aplicação
+            e.printStackTrace();
         }
     }
 
-
-
+    // Método acionado ao clicar para abrir a janela de cadastro de Atividade
     @FXML
-    private void onbJanelaClick2(){
+    private void onbJanelaClick2() {
         try {
-            // Carregue o FXML da nova janela
             FXMLLoader loader = new FXMLLoader(getClass().getResource("janelaCadastroAtividade.fxml"));
             Parent root = loader.load();
 
-            // Passe a lista de projetos para o controlador da nova janela
             CadastroAtividade cadastroAtividade = loader.getController();
             cadastroAtividade.setQuadro(quadro);
 
-            // Crie um novo Stage
             Stage novaJanela = new Stage();
-            novaJanela.setTitle("Cadastro de Projetos");
+            novaJanela.setTitle("Cadastro de Atividades");
             novaJanela.setScene(new Scene(root));
-
-            // Mostre a nova janela
             novaJanela.showAndWait();
 
             quadro = cadastroAtividade.getQuadro();
             System.out.println(quadro.retornaProjeto().get(0).retornaAtividade().size());
         } catch (IOException e) {
-            e.printStackTrace(); // Lida com a exceção adequadamente na sua aplicação
+            e.printStackTrace();
         }
-
     }
-
 }

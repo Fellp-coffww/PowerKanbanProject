@@ -15,31 +15,35 @@ import projetointegrador.Model.Entities.Quadro;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+// Classe responsável por controlar a interface de cadastro de uma ação
 public class CadastroAcao {
 
+    // Objeto Quadro
     private Quadro quadro = new Quadro();
 
+    // Referências aos elementos da interface gráfica (FXML)
     @FXML
-    private ComboBox comBoxP;
-
-    @FXML
-    private ComboBox comBoxA;
+    private ComboBox comBoxP; // ComboBox para projetos
 
     @FXML
-    private TextField tDatainicio;
+    private ComboBox comBoxA; // ComboBox para atividades
 
     @FXML
-    private TextField tDataFinal;
+    private TextField tDatainicio; // Campo de texto para data de início
 
     @FXML
-    private TextField tNome;
+    private TextField tDataFinal; // Campo de texto para data final
 
     @FXML
-    private TextField tResponsavel;
+    private TextField tNome; // Campo de texto para nome
 
-    @FXML Button bSave;
+    @FXML
+    private TextField tResponsavel; // Campo de texto para responsável
 
+    @FXML
+    private Button bSave; // Botão de salvar
 
+    // Getter e setter para o objeto Quadro
     public Quadro getQuadro() {
         return quadro;
     }
@@ -48,30 +52,27 @@ public class CadastroAcao {
         this.quadro = quadro;
     }
 
+    // Método para atualizar o ComboBox de projetos
     @FXML
-    protected void AtualizaComboBoxP(){
+    protected void AtualizaComboBoxP() {
         ObservableList<Projeto> observableList;
         observableList = FXCollections.observableArrayList(quadro.retornaProjeto());
         comBoxP.setItems(observableList);
     }
 
+    // Método para habilitar o ComboBox de atividades se houver projetos
     @FXML
-    protected void habilitaComboBoxA(){
-
-        if (comBoxP.getItems().size() > 0){
-
+    protected void habilitaComboBoxA() {
+        if (comBoxP.getItems().size() > 0) {
             comBoxA.depthTestProperty().set(DepthTest.ENABLE);
-
         }
-
     }
 
+    // Método para atualizar o ComboBox de atividades com base no projeto selecionado
     @FXML
-    protected void AtualizaComboBoxA(){
+    protected void AtualizaComboBoxA() {
         ObservableList<Atividade> observableList;
         observableList = FXCollections.observableArrayList(quadro.retornaProjeto().get(comBoxP.getSelectionModel().getSelectedIndex()).retornaAtividade());
         comBoxA.setItems(observableList);
     }
-
-
 }
