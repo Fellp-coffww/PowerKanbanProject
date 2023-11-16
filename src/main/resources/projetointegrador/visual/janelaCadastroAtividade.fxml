@@ -9,14 +9,14 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projetointegrador.Controller.CadastroAtividade">
    <children>
-      <Button fx:id="onbSaveP" layoutX="325.0" layoutY="326.0" mnemonicParsing="false" text="Save" />
-      <TextField fx:id="tNomeP" layoutX="217.0" layoutY="143.0" promptText="Digite o nome..." />
+      <Button fx:id="onbSaveA" layoutX="325.0" layoutY="326.0" mnemonicParsing="false" onAction="#saveAtividade" text="Save" />
+      <TextField fx:id="tNomeA" layoutX="217.0" layoutY="143.0" promptText="Digite o nome..." />
       <Text layoutX="217.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome da atividade:">
          <font>
             <Font size="16.0" />
          </font>
       </Text>
-      <TextField fx:id="tDataFinalP" layoutX="217.0" layoutY="212.0" promptText="dd/MM/yyyy" />
+      <TextField fx:id="tDataFinalA" layoutX="217.0" layoutY="212.0" promptText="dd/MM/yyyy" />
       <Text layoutX="217.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data de finalização:">
          <font>
             <Font size="16.0" />
@@ -27,12 +27,12 @@
             <Font size="16.0" />
          </font>
       </Text>
-      <TextField fx:id="tDatainicioP" layoutX="35.0" layoutY="211.0" promptText="dd/MM/yyyy" />
+      <TextField fx:id="tDatainicioA" layoutX="35.0" layoutY="211.0" promptText="dd/MM/yyyy" />
       <Text layoutX="35.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastro Atividade:">
          <font>
             <Font size="50.0" />
          </font>
       </Text>
-      <ComboBox fx:id="comBox" layoutX="35.0" layoutY="143.0" onMouseClicked="#atualizaComboBox" prefWidth="150.0" />
+      <ComboBox fx:id="comBox" layoutX="35.0" layoutY="143.0" onMouseClicked="#atualizaComboBox" prefWidth="150.0" promptText="Seleciona o projeto..." />
    </children>
 </AnchorPane>

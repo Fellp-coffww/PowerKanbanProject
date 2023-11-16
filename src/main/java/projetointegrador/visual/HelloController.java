@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.fxml.FXMLLoader;
 import javafx.collections.*;
+import projetointegrador.Controller.CadastroAcao;
 import projetointegrador.Controller.CadastroAtividade;
 import projetointegrador.Controller.CadastroProjeto;
 import projetointegrador.Model.Entities.Projeto;
@@ -24,8 +25,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class HelloController {
-
-
 
     private  Quadro quadro = new Quadro();
 
@@ -59,18 +58,27 @@ public class HelloController {
 
     @FXML
     protected void onbJanelaClick(){
-        Stage s1 = new Stage();
-        s1.initModality(Modality.WINDOW_MODAL);
-        Parent root = null;
         try {
-            root = FXMLLoader.load(getClass().getResource("janelaCadastroAcao.fxml"));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        Scene scene = new Scene(root);
+            // Carregue o FXML da nova janela
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("janelaCadastroAcao.fxml"));
+            Parent root = loader.load();
 
-        s1.setScene(scene);
-        s1.show();
+            // Passe a lista de projetos para o controlador da nova janela
+            CadastroAcao cadastroAcao = loader.getController();
+            cadastroAcao.setQuadro(quadro);
+
+            // Crie um novo Stage
+            Stage novaJanela = new Stage();
+            novaJanela.setTitle("Cadastro de Projetos");
+            novaJanela.setScene(new Scene(root));
+
+            // Mostre a nova janela
+            novaJanela.showAndWait();
+
+            quadro = cadastroAcao.getQuadro();
+        } catch (IOException e) {
+            e.printStackTrace(); // Lida com a exceção adequadamente na sua aplicação
+        }
     }
 
     @FXML
@@ -120,6 +128,7 @@ public class HelloController {
             novaJanela.showAndWait();
 
             quadro = cadastroAtividade.getQuadro();
+            System.out.println(quadro.retornaProjeto().get(0).retornaAtividade().size());
         } catch (IOException e) {
             e.printStackTrace(); // Lida com a exceção adequadamente na sua aplicação
         }
