@@ -32,7 +32,7 @@ public class Atividade  {
 
     public void addObject(Ação ação){
 
-        lista.add(ação); 
+        lista.add(ação);
 
     }
 
