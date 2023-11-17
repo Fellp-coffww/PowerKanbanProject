@@ -53,14 +53,14 @@ public class Atividade implements Default {
 
     }
 
-    public Ação addinstanceofAção(LocalDate dataDeInicio, LocalDate dataDeTermino, int percentual, String nome, String departamento){
-
-        Ação acao = new Ação(dataDeInicio,dataDeTermino,percentual,nome, departamento);
-
-        return acao;
+    public void addObject(Ação ação){
+        lista.add(ação);
     }
 
-
+    public ArrayList<Ação> retornaAção(){
+        return this.lista;
+    }
+    
     public Ação removeinstanceOfAcao(int idx){
         return lista.get(idx);
     }
