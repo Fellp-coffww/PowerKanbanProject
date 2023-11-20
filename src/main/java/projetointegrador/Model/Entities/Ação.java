@@ -147,8 +147,12 @@ public class Ação implements Default {
         return "Nome: " + this.nome + " Data de inicio: " + this.dataDeInicio + " Data de termino: " + this.dataDeTermino + " Departamento: " + this.departamento;
     }
     
-    public String retornaString(){
+    public String retornaStringIn(){
         String temp = this.dataDeInicio.getDayOfMonth()+"/"+this.dataDeInicio.getMonthValue()+"/"+this.dataDeInicio.getYear();
+        return temp;
+    }
+    public String retornaStringFin(){
+        String temp = this.dataDeTermino.getDayOfMonth()+"/"+this.dataDeTermino.getMonthValue()+"/"+this.dataDeTermino.getYear();
         return temp;
     }
 }
