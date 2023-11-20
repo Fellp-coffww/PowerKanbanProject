@@ -9,6 +9,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import projetointegrador.Model.Entities.Atividade;
+import projetointegrador.Model.Entities.Ação;
 import projetointegrador.Model.Entities.Projeto;
 import projetointegrador.Model.Entities.Quadro;
 
@@ -39,6 +40,10 @@ public class CadastroAcao {
 
     @FXML
     private TextField tResponsavel; // Campo de texto para responsável
+
+    @FXML
+    private TextField tDepartamento; // Campo de texto para responsável
+
 
     @FXML
     private Button bSave; // Botão de salvar
@@ -75,4 +80,25 @@ public class CadastroAcao {
         observableList = FXCollections.observableArrayList(quadro.retornaProjeto().get(comBoxP.getSelectionModel().getSelectedIndex()).retornaAtividade());
         comBoxA.setItems(observableList);
     }
+
+
+    @FXML
+    protected void saveAcao(){
+
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate dataInicio = LocalDate.parse(tDatainicio.getText(), dtf);
+        LocalDate dataFinal = LocalDate.parse(tDataFinal.getText(), dtf);
+        String nome = tNome.getText();
+        String Responsalvel = tResponsavel.getText();
+        String Departmamento = tDepartamento.getText();
+
+        quadro.retornaProjeto().get(comBoxP.getSelectionModel().getSelectedIndex()).retornaAtividade().get(comBoxA.getSelectionModel().getSelectedIndex()).
+                addObject(new Ação(dataInicio,dataFinal,nome, Responsalvel,Departmamento));
+
+        Stage stage = (Stage) bSave.getScene().getWindow();
+        stage.close();
+
+    }
+
+
 }

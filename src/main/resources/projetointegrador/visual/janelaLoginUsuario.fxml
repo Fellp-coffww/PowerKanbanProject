@@ -47,7 +47,7 @@
                   <Image url="@../../projetointegrador.images/kisspng-computer-icons-users-group-icon-design-joining-5ae165f181f1d7.5080867215247211375323.png" />
                </image>
             </ImageView>
-            <Button fx:id="bLogin" layoutX="146.0" layoutY="317.0" mnemonicParsing="false" onAction="#onbLoginClick" style="-fx-border-color: #FFA500; -fx-background-color: #FFA500;" text="Entrar" textFill="WHITE">
+            <Button fx:id="bLogin" layoutX="146.0" layoutY="317.0" mnemonicParsing="false" onMouseClicked="#onbLoginClick" style="-fx-border-color: #FFA500; -fx-background-color: #FFA500;" text="Entrar" textFill="WHITE">
                <font>
                   <Font name="Arial Black" size="12.0" />
                </font>

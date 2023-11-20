@@ -35,17 +35,19 @@ public class Ação implements Default {
     private int percentual;            // Percentual da ação
     private String nome;               // Nome da ação
     private int idx;                   // Indice da lista
-    private String responsavel;
+
     private String departamento;
 
+    private String responsavel;
+
     // Construtor para inicializar uma Ação com parâmetros específicos
-    public Ação(LocalDate dataDeInicio, LocalDate dataDeTermino, String nome, String departamento,String responsavel) {
+
+    public Ação(LocalDate dataDeInicio, LocalDate dataDeTermino, String nome,String Responsavel, String departamento) {
         this.dataDeInicio = dataDeInicio;    // Inicializa a data de início com o valor fornecido
         this.dataDeTermino = dataDeTermino;  // Inicializa a data de término com o valor fornecido
         this.nome = nome;                    // Inicializa o nome com o valor fornecido
-        this.departamento = departamento;   // Inicializa o departamento com o valor fornecido
-        this.responsavel = responsavel;
-    }
+        this.departamento = departamento;
+        this.responsavel = Responsavel;
 
     public String getResponsavel() {
         return responsavel;
@@ -53,7 +55,7 @@ public class Ação implements Default {
 
     public void setResponsavel(String responsavel) {
         this.responsavel = responsavel;
-    }
+
 
     // Construtor vazio
     public Ação() {

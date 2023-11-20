@@ -38,7 +38,7 @@ public class ControllerUser {
     @FXML
     protected void onbLoginClick() {
         for (int n = 0; n < lista.size(); n++) {
-            if ((tnome.getText().equals(lista.get(n).getName())) && tpasswd.getText().equals(lista.get(n).getPassword())) {
+            if ((tnome.getText().equals(quadro.getUsers().get(n).getName())) && tpasswd.getText().equals(quadro.getUsers().get(n).getPassword())) {
                 OK = true; // Define OK como verdadeiro se as credenciais coincidirem
             }
         }
@@ -59,6 +59,9 @@ public class ControllerUser {
 
                 // Mostra a nova janela
                 novaJanela.showAndWait();
+
+                Stage stage = (Stage) bLogin.getScene().getWindow();
+                stage.close();
 
                 // Atualiza o quadro com as alterações feitas na janela
                 quadro = helloController.getQuadro();
