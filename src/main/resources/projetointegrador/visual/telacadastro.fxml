@@ -16,6 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <left>
       <AnchorPane prefHeight="500.0" prefWidth="350.0" BorderPane.alignment="CENTER">
@@ -23,14 +24,14 @@
             <Label layoutX="104.0" layoutY="164.0" />
             <TextField fx:id="TextoEmailCadastro" layoutX="89.0" layoutY="250.0" promptText="Email" style="-fx-border-color: #FFD700; -fx-border-width: 2px 2px 2px;" />
             <TextField fx:id="TextoUsuarioCadastro" layoutX="89.0" layoutY="206.0" promptText="Nome de usuário" style="-fx-border-color: #FFD700; -fx-border-width: 2px 2px 2px;" />
-            <Button fx:id="BotaoDeCadastro" layoutX="130.0" layoutY="340.0" mnemonicParsing="false" style="-fx-background-color: #FFA500;" text="Cadastrar" textFill="WHITE">
+            <Button fx:id="BotaoDeCadastro" layoutX="130.0" layoutY="340.0" mnemonicParsing="false" onAction="#ClickDoBotao" style="-fx-background-color: #FFA500;" text="Cadastrar" textFill="WHITE">
                <font>
                   <Font name="Arial Black" size="12.0" />
                </font>
             </Button>
             <ImageView fitHeight="31.0" fitWidth="25.0" layoutX="60.0" layoutY="253.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@568148.png" />
+                  <Image url="@../../projetointegrador.images/568148.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="21.0" fitWidth="27.0" layoutX="62.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true">
@@ -40,7 +41,7 @@
             </ImageView>
             <ImageView fitHeight="26.0" fitWidth="21.0" layoutX="62.0" layoutY="296.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@232962.png" />
+                  <Image url="@../../projetointegrador.images/downloadkey.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="65.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true" />
