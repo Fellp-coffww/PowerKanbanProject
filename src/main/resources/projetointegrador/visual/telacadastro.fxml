@@ -11,7 +11,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <left>
       <AnchorPane prefHeight="500.0" prefWidth="350.0" BorderPane.alignment="CENTER">
@@ -42,7 +41,7 @@
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="65.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="70.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@kisspng-computer-icons-users-group-icon-design-joining-5ae165f181f1d7.5080867215247211375323.png" />
+                  <Image url="@../../projetointegrador.images/kisspng-computer-icons-users-group-icon-design-joining-5ae165f181f1d7.5080867215247211375323.png" />
                </image>
             </ImageView>
             <PasswordField fx:id="SenhaCadastro" layoutX="90.0" layoutY="294.0" promptText="Senha" style="-fx-border-color: #FFD700; -fx-border-width: 2px 2px 2px;" />
@@ -59,7 +58,7 @@
             </Text>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="80.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@2837593-kanban-lean-method-line-icon-vetor-removebg-preview.png" />
+                  <Image url="@../../projetointegrador.images/2837593-kanban-lean-method-line-icon-vetor-removebg-preview.png" />
                </image>
             </ImageView>
          </children>
