@@ -3,97 +3,55 @@ package projetointegrador.Model.Entities;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-/*
- * Copyright (C) 2023 Fellipe Augusto <fellipe.augusto01@gmail.com>
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
+// Importações necessárias
 
 /**
- *
- * @author Fellipe Augusto <fellipe.augusto01@gmail.com>
- * @date 08/11/2023
- * @brief Class Atividade
+ * Entidade Atividade que representa uma atividade a ser realizada.
  */
+public class Atividade  {
 
+    // Lista de Ações associadas a esta atividade
+    private ArrayList<Ação> lista = new ArrayList<>();
 
-public class Atividade implements Default {
-
-
-    private ArrayList <Ação> lista = new ArrayList();
-
-    Ação tempAção = new Ação();
+    // Atributos da atividade
     private LocalDate dataDeInicio;
-
     private LocalDate dataDeTermino;
-
     private int percentual;
+    private String nome;
 
-    private  String nome;
-
-
+    // Construtor da classe Atividade
     public Atividade(LocalDate dataDeInicio, LocalDate dataDeTermino, String nome) {
         this.dataDeInicio = dataDeInicio;
         this.dataDeTermino = dataDeTermino;
         this.nome = nome;
     }
 
+    // Construtor vazio
     public Atividade() {
-
     }
+    // Método para remover uma instância de Ação da lista de Ações
 
-    public void addObject(Ação ação){
-        lista.add(ação);
-    }
-
-    public ArrayList<Ação> retornaAção(){
-        return this.lista;
-    }
-    
     public Ação removeinstanceOfAcao(int idx){
         return lista.get(idx);
     }
 
-    @Override
-    public void addObject() {
-    }
+    // Métodos da interface Default - não implementados aqui
 
-    @Override
-    public void removeObject() {
+    // Método para atualizar o percentual com base na data atual e nas datas de início e término da atividade
 
-
-
-    }
-
-    @Override
-    public void editObject() {
-
-    }
-
-    @Override
     public void atualizaPercentualPorData() {
-        this.percentual =
-                (LocalDate.now().getDayOfMonth()-dataDeInicio.getDayOfMonth()*100) / (dataDeTermino.getDayOfMonth()- dataDeInicio.getDayOfMonth());
+        this.percentual = (LocalDate.now().getDayOfMonth() - dataDeInicio.getDayOfMonth() * 100) / (dataDeTermino.getDayOfMonth() - dataDeInicio.getDayOfMonth());
     }
 
-    @Override
+    // Método para atualizar o percentual manualmente
+
     public void atualizaPercentualManual(int percentual) {
-
         this.percentual = percentual;
-
     }
 
+    // Getters e Setters para os atributos da atividade
+
+    // Métodos getters e setters para data de início
     public LocalDate getDataDeInicio() {
         return dataDeInicio;
     }
@@ -102,6 +60,7 @@ public class Atividade implements Default {
         this.dataDeInicio = dataDeInicio;
     }
 
+    // Métodos getters e setters para data de término
     public LocalDate getDataDeTermino() {
         return dataDeTermino;
     }
@@ -110,6 +69,7 @@ public class Atividade implements Default {
         this.dataDeTermino = dataDeTermino;
     }
 
+    // Métodos getters e setters para percentual
     public int getPercentual() {
         return percentual;
     }
@@ -118,6 +78,7 @@ public class Atividade implements Default {
         this.percentual = percentual;
     }
 
+    // Métodos getters e setters para nome
     public String getNome() {
         return nome;
     }

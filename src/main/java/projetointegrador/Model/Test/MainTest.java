@@ -13,8 +13,9 @@ public class MainTest {
         Scanner sc = new Scanner(System.in);
 
 
-        DateTimeFormatter dft1 =  DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        Quadro quadro = new Quadro();
+
+       DateTimeFormatter dft1 =  DateTimeFormatter.ofPattern("dd/MM/yyyy");
+       Quadro quadro = new Quadro();
        quadro.addObject(new Projeto( LocalDate.parse("10/12/2002",dft1), LocalDate.parse("25/12/2002",dft1),"Fellipe"));
        quadro.retornaProjeto().get(0).addObject(new Atividade(LocalDate.parse("10/12/2002",dft1), LocalDate.parse("12/12/2002",dft1),"Atv01"));
        quadro.retornaProjeto().get(0).addObject(new Atividade(LocalDate.parse("10/12/2002",dft1), LocalDate.parse("15/12/2002",dft1),"Atv02"));
@@ -52,6 +53,18 @@ public class MainTest {
                 }
             }
         }
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate lcd = LocalDate.now();
+        LocalDate lcf = LocalDate.parse("11/11/2023", dateTimeFormatter);
+        LocalDate lci = LocalDate.parse("07/11/2023", dateTimeFormatter);
+
+        int percent = (lcd.getDayOfMonth()- lci.getDayOfMonth()) * 100 / (lcf.getDayOfMonth() - lci.getDayOfMonth());
+
+        System.out.println(percent + "%");
+
+        System.out.println("JM");
+
+
 
        System.out.println("Digite um Responsavel: ");
         String filtroResp = sc.nextLine();
