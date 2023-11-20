@@ -29,14 +29,8 @@ public class Atividade  {
     // Construtor vazio
     public Atividade() {
     }
-
-    public void addObject(Ação ação){
-
-        lista.add(ação);
-
-    }
-
     // Método para remover uma instância de Ação da lista de Ações
+
     public Ação removeinstanceOfAcao(int idx){
         return lista.get(idx);
     }

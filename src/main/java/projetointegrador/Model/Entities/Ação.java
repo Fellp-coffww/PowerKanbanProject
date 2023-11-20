@@ -35,16 +35,24 @@ public class Ação implements Default {
     private int percentual;            // Percentual da ação
     private String nome;               // Nome da ação
     private int idx;                   // Indice da lista
-
+    private String responsavel;
     private String departamento;
 
     // Construtor para inicializar uma Ação com parâmetros específicos
-    public Ação(LocalDate dataDeInicio, LocalDate dataDeTermino, int percentual, String nome, String departamento) {
+    public Ação(LocalDate dataDeInicio, LocalDate dataDeTermino, String nome, String departamento,String responsavel) {
         this.dataDeInicio = dataDeInicio;    // Inicializa a data de início com o valor fornecido
         this.dataDeTermino = dataDeTermino;  // Inicializa a data de término com o valor fornecido
-        this.percentual = percentual;        // Inicializa o percentual com o valor fornecido
         this.nome = nome;                    // Inicializa o nome com o valor fornecido
-        this.departamento = departamento;
+        this.departamento = departamento;   // Inicializa o departamento com o valor fornecido
+        this.responsavel = responsavel;
+    }
+
+    public String getResponsavel() {
+        return responsavel;
+    }
+
+    public void setResponsavel(String responsavel) {
+        this.responsavel = responsavel;
     }
 
     // Construtor vazio
@@ -133,5 +141,18 @@ public class Ação implements Default {
 
     public void setDepartamento(String departamento) {
         this.departamento = departamento;
+    }
+    
+    public String toString(){
+        return "Nome: " + this.nome + " Data de inicio: " + this.dataDeInicio + " Data de termino: " + this.dataDeTermino + " Departamento: " + this.departamento;
+    }
+    
+    public String retornaStringIn(){
+        String temp = this.dataDeInicio.getDayOfMonth()+"/"+this.dataDeInicio.getMonthValue()+"/"+this.dataDeInicio.getYear();
+        return temp;
+    }
+    public String retornaStringFin(){
+        String temp = this.dataDeTermino.getDayOfMonth()+"/"+this.dataDeTermino.getMonthValue()+"/"+this.dataDeTermino.getYear();
+        return temp;
     }
 }
