@@ -27,7 +27,7 @@
          </font>
       </Text>
       <TextField fx:id="tDataFinalP" layoutX="207.0" layoutY="134.0" promptText="dd/MM/yyyy" />
-      <Text layoutX="25.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome da ação:">
+      <Text layoutX="25.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome da acao:">
          <font>
             <Font size="16.0" />
          </font>

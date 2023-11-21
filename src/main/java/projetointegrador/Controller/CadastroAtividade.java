@@ -55,7 +55,6 @@ public class CadastroAtividade {
         quadro.retornaProjeto().get(comBox.getSelectionModel().getSelectedIndex()).addObject(atividade);
         Stage stage = (Stage) onbSaveA.getScene().getWindow();
         stage.close();
-
     }
 
     // Getters e setters para o objeto Quadro
