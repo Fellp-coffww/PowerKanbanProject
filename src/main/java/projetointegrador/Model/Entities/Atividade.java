@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class Atividade  {
 
     // Lista de Ações associadas a esta atividade
-    private ArrayList<Ação> lista = new ArrayList<>();
+    private ArrayList<Acao> lista = new ArrayList<>();
 
     // Atributos da atividade
     private LocalDate dataDeInicio;
@@ -29,9 +29,17 @@ public class Atividade  {
     // Construtor vazio
     public Atividade() {
     }
+
+    public void addObject(Acao acao){
+        lista.add(acao);
+    }
+
+    public ArrayList retornaAção(){
+        return lista;
+    }
     // Método para remover uma instância de Ação da lista de Ações
 
-    public Ação removeinstanceOfAcao(int idx){
+    public Acao removeinstanceOfAcao(int idx){
         return lista.get(idx);
     }
 

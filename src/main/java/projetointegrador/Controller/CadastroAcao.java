@@ -8,8 +8,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import projetointegrador.Model.Entities.Acao;
 import projetointegrador.Model.Entities.Atividade;
-import projetointegrador.Model.Entities.Ação;
 import projetointegrador.Model.Entities.Projeto;
 import projetointegrador.Model.Entities.Quadro;
 
@@ -93,7 +93,7 @@ public class CadastroAcao {
         String Departmamento = tDepartamento.getText();
 
         quadro.retornaProjeto().get(comBoxP.getSelectionModel().getSelectedIndex()).retornaAtividade().get(comBoxA.getSelectionModel().getSelectedIndex()).
-                addObject(new Ação(dataInicio,dataFinal,nome, Responsalvel,Departmamento));
+                addObject(new Acao(dataInicio,dataFinal,nome, Responsalvel,Departmamento));
 
         Stage stage = (Stage) bSave.getScene().getWindow();
         stage.close();
