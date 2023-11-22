@@ -39,7 +39,7 @@ public class Ação implements Default {
     private String departamento;
 
     // Construtor para inicializar uma Ação com parâmetros específicos
-    public Ação(LocalDate dataDeInicio, LocalDate dataDeTermino, String nome, String departamento,String responsavel) {
+    public Ação(LocalDate dataDeInicio, LocalDate dataDeTermino, String nome, String responsavel,String departamento) {
         this.dataDeInicio = dataDeInicio;    // Inicializa a data de início com o valor fornecido
         this.dataDeTermino = dataDeTermino;  // Inicializa a data de término com o valor fornecido
         this.nome = nome;                    // Inicializa o nome com o valor fornecido
@@ -147,11 +147,11 @@ public class Ação implements Default {
         return "Nome: " + this.nome + " Data de inicio: " + this.dataDeInicio + " Data de termino: " + this.dataDeTermino + " Departamento: " + this.departamento;
     }
     
-    public String retornaStringIn(){
+    public String retornaStringInicio(){
         String temp = this.dataDeInicio.getDayOfMonth()+"/"+this.dataDeInicio.getMonthValue()+"/"+this.dataDeInicio.getYear();
         return temp;
     }
-    public String retornaStringFin(){
+    public String retornaStringFim(){
         String temp = this.dataDeTermino.getDayOfMonth()+"/"+this.dataDeTermino.getMonthValue()+"/"+this.dataDeTermino.getYear();
         return temp;
     }

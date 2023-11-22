@@ -29,6 +29,14 @@ public class Atividade  {
     // Construtor vazio
     public Atividade() {
     }
+
+    public void addObject(Ação acao){
+        lista.add(acao);
+    }
+
+    public ArrayList<Ação> retornaAcao() {
+        return this.lista;
+    }
     // Método para remover uma instância de Ação da lista de Ações
 
     public Ação removeinstanceOfAcao(int idx){
@@ -85,6 +93,11 @@ public class Atividade  {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    @Override
+    public String toString() {
+        return this.nome;
     }
 
 }
