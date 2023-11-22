@@ -37,6 +37,7 @@ public class ControllerUser {
     // Método acionado ao clicar no botão de login
     @FXML
     protected void onbLoginClick() {
+        lista = quadro.getUsers();
         for (int n = 0; n < lista.size(); n++) {
             if ((tnome.getText().equals(quadro.getUsers().get(n).getName())) && tpasswd.getText().equals(quadro.getUsers().get(n).getPassword())) {
                 OK = true; // Define OK como verdadeiro se as credenciais coincidirem
@@ -85,6 +86,36 @@ public class ControllerUser {
             User user = new User("admin", "admin");
             lista.add(user);
         }
+    }
+
+    @FXML
+    protected void onClockHyperLink(){
+        try {
+            // Carrega o FXML da nova janela
+            FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("telacadastro.fxml"));
+            Parent root = loader.load();
+
+            // Passa o Quadro para o controlador da nova janela
+            ControllerCadastro helloController = loader.getController();
+            helloController.setQuadro(quadro);
+
+            // Cria um novo Stage
+            Stage novaJanela = new Stage();
+            novaJanela.setTitle("Cadastro");
+            novaJanela.setScene(new Scene(root));
+
+            // Mostra a nova janela
+            novaJanela.show();
+
+            Stage stage = (Stage) bLogin.getScene().getWindow();
+            stage.close();
+
+            // Atualiza o quadro com as alterações feitas na janela
+            quadro = helloController.getQuadro();
+        } catch (IOException e) {
+            e.printStackTrace(); // Lida com a exceção adequadamente na sua aplicação
+        }
+
     }
 
     // Getters e setters para os atributos do controlador
