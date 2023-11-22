@@ -28,8 +28,8 @@
    <center>
       <AnchorPane prefHeight="500.0" prefWidth="350.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="tnome" layoutX="101.0" layoutY="215.0" promptText="Login" style="-fx-border-color: #FFD700; -fx-border-width: 2px 2px 2px;" />
-            <PasswordField fx:id="tpasswd" layoutX="101.0" layoutY="268.0" promptText="Senha" style="-fx-border-color: #FFD700; -fx-border-width: 2px 2px 2px;" />
+            <TextField fx:id="tnome" layoutX="101.0" layoutY="215.0" promptText="Login" style="-fx-background-radius: 15px;" />
+            <PasswordField fx:id="tpasswd" layoutX="101.0" layoutY="268.0" promptText="Senha" style="-fx-background-radius: 15px;" />
             <Hyperlink layoutX="146.0" layoutY="456.0" text="Registrar-se" textFill="ORANGE" />
             <ImageView fitHeight="18.0" fitWidth="16.0" layoutX="77.0" layoutY="222.0" pickOnBounds="true" preserveRatio="true">
                <image>
