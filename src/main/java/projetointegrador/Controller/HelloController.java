@@ -1,6 +1,7 @@
-package projetointegrador.visual;
+package projetointegrador.Controller;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
@@ -29,19 +30,15 @@ public class HelloController {
 
     // Referências aos elementos da interface gráfica (FXML)
     @FXML
-    private ComboBox<Projeto> comBox;
+    protected Button projeto01;
 
     @FXML
-    private TextField tDatainicio;
+    protected Button projeto02;
 
     @FXML
-    private TextField tDataFinal;
+    protected Button projeto03;
 
-    @FXML
-    private TextField tResponsavel;
 
-    @FXML
-    private TextField tNome;
 
     // Método acionado ao clicar para abrir a janela de cadastro de Ação
     @FXML

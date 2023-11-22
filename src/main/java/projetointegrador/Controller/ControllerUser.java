@@ -1,5 +1,7 @@
 package projetointegrador.Controller;
 
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,7 +13,6 @@ import javafx.stage.Stage;
 import projetointegrador.Model.Entities.Quadro;
 import projetointegrador.Model.Entities.User;
 import projetointegrador.visual.HelloApplication;
-import projetointegrador.visual.HelloController;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -52,6 +53,17 @@ public class ControllerUser {
                 // Passa o Quadro para o controlador da nova janela
                 HelloController helloController = loader.getController();
                 helloController.setQuadro(quadro);
+
+                if (quadro.retornaProjeto().size() == 1){
+                    helloController.projeto01.visibleProperty().set(true);
+                }else if (quadro.retornaProjeto().size() == 2){
+                    helloController.projeto01.visibleProperty().set(true);
+                    helloController.projeto02.visibleProperty().set(true);
+                } else if (quadro.retornaProjeto().size() == 3) {
+                    helloController.projeto01.visibleProperty().set(true);
+                    helloController.projeto02.visibleProperty().set(true);
+                    helloController.projeto03.visibleProperty().set(true);
+                }
 
                 // Cria um novo Stage
                 Stage novaJanela = new Stage();

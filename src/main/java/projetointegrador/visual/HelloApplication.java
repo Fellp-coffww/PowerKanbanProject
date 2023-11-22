@@ -26,7 +26,6 @@ public class HelloApplication extends Application {
         quadro.retornaProjeto().get(0).addObject(new Atividade(LocalDate.now(),LocalDate.now(), "Atividade 01"));
         quadro.retornaProjeto().get(1).addObject(new Atividade(LocalDate.now(),LocalDate.now(), "Atividade 02"));
 
-
          /*
          * Teste de funcionalidade
          *
