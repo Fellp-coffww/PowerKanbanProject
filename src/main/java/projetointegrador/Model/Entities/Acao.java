@@ -38,16 +38,15 @@ public class Acao {
 
     private String departamento;
 
-    private String responsavel;
+    private String Responsavel;
 
     // Construtor para inicializar uma Ação com parâmetros específicos
-
-    public Acao(LocalDate dataDeInicio, LocalDate dataDeTermino, String nome, String Responsavel, String departamento) {
+    public Acao(LocalDate dataDeInicio, LocalDate dataDeTermino, String nome,String departamento ,String responsavel) {
         this.dataDeInicio = dataDeInicio;    // Inicializa a data de início com o valor fornecido
         this.dataDeTermino = dataDeTermino;  // Inicializa a data de término com o valor fornecido
         this.nome = nome;                    // Inicializa o nome com o valor fornecido
         this.departamento = departamento;
-        this.responsavel = Responsavel;
+        this.Responsavel = responsavel;
     }
     // Construtor vazio
     public Acao() {
@@ -116,16 +115,15 @@ public class Acao {
     public String toString(){
         return "Nome: " + this.nome + " Data de inicio: " + this.dataDeInicio + " Data de termino: " + this.dataDeTermino + " Departamento: " + this.departamento;
     }
-
-    public String retornaStringIn(){
-        String temp = this.dataDeInicio.getDayOfMonth()+"/"+this.dataDeInicio.getMonthValue()+"/"+this.dataDeInicio.getYear();
-        return temp;
-    }
-    public String retornaStringFin(){
+    public String retornaStringFim(){
         String temp = this.dataDeTermino.getDayOfMonth()+"/"+this.dataDeTermino.getMonthValue()+"/"+this.dataDeTermino.getYear();
         return temp;
     }
 
+    public String retornaStringInicio(){
+        String temp = this.dataDeInicio.getDayOfMonth()+"/"+this.dataDeInicio.getMonthValue()+"/"+this.dataDeInicio.getYear();
+        return temp;
+    }
     public String getDepartamento() {
         return departamento;
     }
@@ -135,11 +133,11 @@ public class Acao {
     }
 
     public String getResponsavel() {
-        return responsavel;
+        return Responsavel;
     }
 
     public void setResponsavel(String responsavel) {
-        this.responsavel = responsavel;
+        this.Responsavel = responsavel;
     }
 
 
