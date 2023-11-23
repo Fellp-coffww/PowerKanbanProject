@@ -23,7 +23,6 @@ public class DataValidation {
             return false;
         }
     }
-
     public Integer isInteger(String string){
         System.out.print(string);
         String temp = "";

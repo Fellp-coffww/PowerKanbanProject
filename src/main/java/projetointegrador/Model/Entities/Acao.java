@@ -27,7 +27,7 @@ import java.time.LocalDate;
  */
 
 // Declaração da classe Ação que implementa a interface Default
-public class Ação implements Default {
+public class Acao {
 
     // Atributos privados da classe
     private LocalDate dataDeInicio;    // Data de início da ação
@@ -35,60 +35,37 @@ public class Ação implements Default {
     private int percentual;            // Percentual da ação
     private String nome;               // Nome da ação
     private int idx;                   // Indice da lista
-    private String responsavel;
+
     private String departamento;
 
+    private String Responsavel;
+
     // Construtor para inicializar uma Ação com parâmetros específicos
-    public Ação(LocalDate dataDeInicio, LocalDate dataDeTermino, String nome, String responsavel,String departamento) {
+    public Acao(LocalDate dataDeInicio, LocalDate dataDeTermino, String nome,String departamento ,String responsavel) {
         this.dataDeInicio = dataDeInicio;    // Inicializa a data de início com o valor fornecido
         this.dataDeTermino = dataDeTermino;  // Inicializa a data de término com o valor fornecido
         this.nome = nome;                    // Inicializa o nome com o valor fornecido
-        this.departamento = departamento;   // Inicializa o departamento com o valor fornecido
-        this.responsavel = responsavel;
+        this.departamento = departamento;
+        this.Responsavel = responsavel;
     }
-
-    public String getResponsavel() {
-        return responsavel;
-    }
-
-    public void setResponsavel(String responsavel) {
-        this.responsavel = responsavel;
-    }
-
     // Construtor vazio
-    public Ação() {
+    public Acao() {
 
     }
 
-    // Implementação dos métodos da interface Default
-
-    // Adiciona um objeto
-    @Override
-    public void addObject() {
-        // Implementação para adicionar um objeto (não especificado no código)
-    }
-
-    // Remove um objeto
-    @Override
-    public void removeObject() {
-        // Implementação para remover um objeto (não especificado no código)
-    }
-
-    // Edita um objeto
-    @Override
     public void editObject() {
         // Implementação para editar um objeto (não especificado no código)
     }
 
     // Método para atualizar o percentual baseado nas datas de início e término
-    @Override
+
     public void atualizaPercentualPorData() {
         this.percentual = (LocalDate.now().getDayOfMonth() - dataDeInicio.getDayOfMonth() * 100) /
                 (dataDeTermino.getDayOfMonth() - dataDeInicio.getDayOfMonth());
     }
 
     // Método para atualizar o percentual manualmente com um valor fornecido
-    @Override
+
     public void atualizaPercentualManual(int percentual) {
         this.percentual = percentual;  // Atualiza o percentual com o valor fornecido
     }
@@ -135,6 +112,18 @@ public class Ação implements Default {
         this.idx = idx;
     }
 
+    public String toString(){
+        return "Nome: " + this.nome + " Data de inicio: " + this.dataDeInicio + " Data de termino: " + this.dataDeTermino + " Departamento: " + this.departamento;
+    }
+    public String retornaStringFim(){
+        String temp = this.dataDeTermino.getDayOfMonth()+"/"+this.dataDeTermino.getMonthValue()+"/"+this.dataDeTermino.getYear();
+        return temp;
+    }
+
+    public String retornaStringInicio(){
+        String temp = this.dataDeInicio.getDayOfMonth()+"/"+this.dataDeInicio.getMonthValue()+"/"+this.dataDeInicio.getYear();
+        return temp;
+    }
     public String getDepartamento() {
         return departamento;
     }
@@ -142,17 +131,17 @@ public class Ação implements Default {
     public void setDepartamento(String departamento) {
         this.departamento = departamento;
     }
-    
-    public String toString(){
-        return "Nome: " + this.nome + " Data de inicio: " + this.dataDeInicio + " Data de termino: " + this.dataDeTermino + " Departamento: " + this.departamento;
+
+    public String getResponsavel() {
+        return Responsavel;
     }
-    
-    public String retornaStringInicio(){
-        String temp = this.dataDeInicio.getDayOfMonth()+"/"+this.dataDeInicio.getMonthValue()+"/"+this.dataDeInicio.getYear();
-        return temp;
+
+    public void setResponsavel(String responsavel) {
+        this.Responsavel = responsavel;
     }
-    public String retornaStringFim(){
-        String temp = this.dataDeTermino.getDayOfMonth()+"/"+this.dataDeTermino.getMonthValue()+"/"+this.dataDeTermino.getYear();
-        return temp;
-    }
+
+
 }
+
+
+

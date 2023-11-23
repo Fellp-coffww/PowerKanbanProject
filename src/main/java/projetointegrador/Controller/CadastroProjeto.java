@@ -26,8 +26,6 @@ public class CadastroProjeto {
     @FXML
     private TextField tDataFinalP; // Campo de texto para a data de finalização do projeto
 
-    @FXML
-    private TextField tResponsavelP; // Campo de texto para o responsável pelo projeto
 
     @FXML
     private TextField tNomeP; // Campo de texto para o nome do projeto

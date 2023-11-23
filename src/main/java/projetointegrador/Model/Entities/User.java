@@ -7,7 +7,6 @@ public class User {
 
     private String name; // Nome do usuário
     private String password; // Senha do usuário
-    private Quadro quadro; // Quadro associado ao usuário
     private Permissao permissao = Permissao.Nulo; // Permissão do usuário
     private String departamento; // Departamento do usuário
 
@@ -37,16 +36,6 @@ public class User {
     // Método setter para definir a senha do usuário
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    // Método getter para obter o quadro associado ao usuário
-    public Quadro getQuadro() {
-        return quadro;
-    }
-
-    // Método setter para definir o quadro associado ao usuário
-    public void setQuadro(Quadro quadro) {
-        this.quadro = quadro;
     }
 
     // Método getter para obter a permissão do usuário

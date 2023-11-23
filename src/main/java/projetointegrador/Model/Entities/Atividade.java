@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class Atividade  {
 
     // Lista de Ações associadas a esta atividade
-    private ArrayList<Ação> lista = new ArrayList<>();
+    private ArrayList<Acao> lista = new ArrayList<>();
 
     // Atributos da atividade
     private LocalDate dataDeInicio;
@@ -30,22 +30,24 @@ public class Atividade  {
     public Atividade() {
     }
 
-    public void addObject(Ação acao){
+    public ArrayList<Acao> retornaAcao() {
+        return this.lista;
+
+    }
+
+    public void addObject(Acao acao){
         lista.add(acao);
     }
 
-    public ArrayList<Ação> retornaAcao() {
-        return this.lista;
+    public ArrayList retornaAção(){
+        return lista;
     }
     // Método para remover uma instância de Ação da lista de Ações
 
-    public Ação removeinstanceOfAcao(int idx){
+    public Acao removeinstanceOfAcao(int idx){
         return lista.get(idx);
     }
 
-    // Métodos da interface Default - não implementados aqui
-
-    // Método para atualizar o percentual com base na data atual e nas datas de início e término da atividade
 
     public void atualizaPercentualPorData() {
         this.percentual = (LocalDate.now().getDayOfMonth() - dataDeInicio.getDayOfMonth() * 100) / (dataDeTermino.getDayOfMonth() - dataDeInicio.getDayOfMonth());
@@ -99,5 +101,4 @@ public class Atividade  {
     public String toString() {
         return this.nome;
     }
-
 }
