@@ -105,25 +105,6 @@ public class MainTest {
             }
         }
         
-        System.out.println("Digite um periodo: ");
-        System.out.println("Digite o dia de inicio: ");
-        Date dataPeriodoInicio = sdt1.parse(sc.nextLine());
-        System.out.println("Digite o dia de termino: ");
-        Date dataPeriodoFim = sdt1.parse(sc.nextLine());
-        
-        for (int i = 0; i < 0; i++) {
-            for (int j = 0; j < 3; j++) {
-                for (int k = 0; k <= 3; k++) {
-                    Date comparativoDataInicio = sdt1.parse(quadro.retornaProjeto().get(i).retornaAtividade().get(j).retornaAcao().get(k).retornaStringInicio());
-                    System.out.println(comparativoDataInicio);
-                    Date comparativoDataFim = sdt1.parse(quadro.retornaProjeto().get(i).retornaAtividade().get(j).retornaAcao().get(k).retornaStringFim());
-                    if(dataPeriodoInicio.after(comparativoDataInicio)){
-                        System.out.println(quadro.retornaProjeto().get(i).retornaAtividade().get(j).retornaAcao().get(k));
-                        
-                    }
-                }
-            }
-        }
         
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate lcd = LocalDate.now();
