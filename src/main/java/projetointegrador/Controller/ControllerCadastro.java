@@ -36,7 +36,7 @@ public class ControllerCadastro {
     @FXML
     protected void ClickDoBotao(){
 
-        User user = new User(TextoUsuarioCadastro.getText(), SenhaCadastro.getText());
+        User user = new User(TextoUsuarioCadastro.getText(), SenhaCadastro.getText(), TextoEmailCadastro.getText());
         quadro.addUsers(user);
         try {
             // Carrega o FXML da nova janela

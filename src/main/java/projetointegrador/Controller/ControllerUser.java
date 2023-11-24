@@ -16,6 +16,7 @@ import projetointegrador.visual.HelloApplication;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 // Controlador para operações relacionadas ao usuário na interface
 public class ControllerUser {
@@ -53,25 +54,14 @@ public class ControllerUser {
                 // Passa o Quadro para o controlador da nova janela
                 HelloController helloController = loader.getController();
                 helloController.setQuadro(quadro);
-
-                if (quadro.retornaProjeto().size() == 1){
-                    helloController.projeto01.visibleProperty().set(true);
-                }else if (quadro.retornaProjeto().size() == 2){
-                    helloController.projeto01.visibleProperty().set(true);
-                    helloController.projeto02.visibleProperty().set(true);
-                } else if (quadro.retornaProjeto().size() == 3) {
-                    helloController.projeto01.visibleProperty().set(true);
-                    helloController.projeto02.visibleProperty().set(true);
-                    helloController.projeto03.visibleProperty().set(true);
-                }
-
+                helloController.testeBotao();
                 // Cria um novo Stage
                 Stage novaJanela = new Stage();
                 novaJanela.setTitle("Main");
                 novaJanela.setScene(new Scene(root));
 
                 // Mostra a nova janela
-                novaJanela.showAndWait();
+                novaJanela.show();
 
                 Stage stage = (Stage) bLogin.getScene().getWindow();
                 stage.close();
@@ -89,15 +79,6 @@ public class ControllerUser {
     // Método para adicionar um usuário à lista
     public void addUser(User user) {
         lista.add(user);
-    }
-
-    // Método para inicializar a lista com um usuário administrativo se for a primeira execução
-    @FXML
-    protected void atualizaLista() {
-        if (!first) {
-            User user = new User("admin", "admin");
-            lista.add(user);
-        }
     }
 
     @FXML
