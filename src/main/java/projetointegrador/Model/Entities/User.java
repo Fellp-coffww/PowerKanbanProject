@@ -10,9 +10,12 @@ public class User {
     private Permissao permissao = Permissao.Nulo; // Permissão do usuário
     private String departamento; // Departamento do usuário
 
-    public User(String name, String password) {
+    private String email;
+
+    public User(String name, String password, String email) {
         this.name = name;
         this.password = password;
+        this.email = email;
 
     }
 
@@ -54,7 +57,17 @@ public class User {
     }
 
 
+    public void setDepartamento(String departamento) {
+        this.departamento = departamento;
+    }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }
 
 
