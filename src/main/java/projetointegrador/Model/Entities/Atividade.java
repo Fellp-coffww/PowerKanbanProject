@@ -30,6 +30,11 @@ public class Atividade  {
     public Atividade() {
     }
 
+    public ArrayList<Acao> retornaAcao() {
+        return this.lista;
+
+    }
+
     public void addObject(Acao acao){
         lista.add(acao);
     }
@@ -43,9 +48,6 @@ public class Atividade  {
         return lista.get(idx);
     }
 
-    // Métodos da interface Default - não implementados aqui
-
-    // Método para atualizar o percentual com base na data atual e nas datas de início e término da atividade
 
     public void atualizaPercentualPorData() {
         this.percentual = (LocalDate.now().getDayOfMonth() - dataDeInicio.getDayOfMonth() * 100) / (dataDeTermino.getDayOfMonth() - dataDeInicio.getDayOfMonth());

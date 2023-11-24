@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.*?>
-<?import javafx.scene.chart.*?>
-<?import javafx.scene.media.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projetointegrador.Controller.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projetointegrador.Controller.HelloController">
    <children>
       <Pane layoutX="-2.0" layoutY="-2.0" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #F5F5F5;">
          <children>
@@ -22,55 +17,55 @@
                   <Font name="Arial Black" size="24.0" />
                </font>
             </Text>
-            <Button layoutX="558.0" layoutY="27.0" mnemonicParsing="false" style="-fx-background-color: #01DF74;" text="Novo Projeto " textFill="WHITE">
+            <Button fx:id="bnewPrj" layoutX="473.0" layoutY="39.0" mnemonicParsing="false" style="-fx-background-color: #01DF74; -fx-background-radius: 20px;" text="Novo Projeto " textFill="WHITE">
                <font>
                   <Font name="Arial Black" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="60.0" layoutY="132.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="160.0" style="-fx-background-color: #ff9900; -fx-background-radius: 15px;" text="Projeto 1" textFill="WHITE">
+            <Button fx:id="bPrj1" layoutX="60.0" layoutY="132.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="160.0" style="-fx-background-color: #ff9900; -fx-background-radius: 40px;" text="Projeto 1" textFill="WHITE">
                <font>
                   <Font name="Arial Black" size="12.0" />
                </font></Button>
-            <Button layoutX="284.0" layoutY="132.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="160.0" style="-fx-background-color: #ff9900; -fx-background-radius: 15px;" text="Projeto 2" textFill="WHITE">
+            <Button fx:id="bPrj2" layoutX="284.0" layoutY="132.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="160.0" style="-fx-background-color: #ff9900; -fx-background-radius: 40px;" text="Projeto 2" textFill="WHITE">
                <font>
                   <Font name="Arial Black" size="12.0" />
                </font></Button>
-            <Button layoutX="516.0" layoutY="132.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="160.0" style="-fx-background-color: #ff9900; -fx-background-radius: 15px;" text="Projeto 3" textFill="WHITE">
+            <Button fx:id="bPrj3" layoutX="516.0" layoutY="132.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="160.0" style="-fx-background-color: #ff9900; -fx-background-radius: 40px;" text="Projeto 3" textFill="WHITE">
                <font>
                   <Font name="Arial Black" size="12.0" />
                </font></Button>
             <ImageView fitHeight="74.0" fitWidth="98.0" layoutX="42.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fitHeight="81.0" fitWidth="83.0" layoutX="42.0" layoutY="27.0">
                <image>
-                  <Image url="@../../../../../../../../../Downloads/kisspng-scrum-sprint-computer-icons-agile-software-develop-kanban-5b466ee864b4e4.3068514415313425684125.png" />
+                  <Image url="@../../projetointegrador.images/kisspng-scrum-sprint-computer-icons-agile-software-develop-kanban-5b466ee864b4e4.3068514415313425684125.png" />
                </image>
             </ImageView>
-            <Button layoutX="60.0" layoutY="266.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="160.0" style="-fx-background-color: #3CB371; -fx-background-radius: 15px;" text="Projeto 4" textFill="WHITE">
+            <Button fx:id="bPrj4" layoutX="60.0" layoutY="266.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="160.0" style="-fx-background-color: #3CB371; -fx-background-radius: 40px;" text="Projeto 4" textFill="WHITE">
                <font>
                   <Font name="Arial Black" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="60.0" layoutY="392.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="160.0" style="-fx-background-color: #58ACFA; -fx-background-radius: 15px;" text="Projeto 7" textFill="WHITE">
+            <Button fx:id="bPrj7" layoutX="60.0" layoutY="392.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="160.0" style="-fx-background-color: #58ACFA; -fx-background-radius: 40px;" text="Projeto 7" textFill="WHITE">
                <font>
                   <Font name="Arial Black" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="284.0" layoutY="266.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="160.0" style="-fx-background-color: #3CB371; -fx-background-radius: 15px;" text="Projeto 5" textFill="WHITE">
+            <Button fx:id="bPrj5" layoutX="284.0" layoutY="266.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="160.0" style="-fx-background-color: #3CB371; -fx-background-radius: 40px;" text="Projeto 5" textFill="WHITE">
                <font>
                   <Font name="Arial Black" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="516.0" layoutY="266.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="160.0" style="-fx-background-color: #3CB371; -fx-background-radius: 15px;" text="Projeto 6" textFill="WHITE">
+            <Button fx:id="bPrj6" layoutX="516.0" layoutY="266.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="160.0" style="-fx-background-color: #3CB371; -fx-background-radius: 40px;" text="Projeto 6" textFill="WHITE">
                <font>
                   <Font name="Arial Black" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="284.0" layoutY="392.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="160.0" style="-fx-background-color: #58ACFA; -fx-background-radius: 15px;" text="Projeto 8" textFill="WHITE">
+            <Button fx:id="bPrj8" layoutX="284.0" layoutY="392.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="160.0" style="-fx-background-color: #58ACFA; -fx-background-radius: 40px;" text="Projeto 8" textFill="WHITE">
                <font>
                   <Font name="Arial Black" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="516.0" layoutY="392.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="160.0" style="-fx-background-color: #58ACFA; -fx-background-radius: 15px;" text="Projeto 9" textFill="WHITE">
+            <Button fx:id="bPrj9" layoutX="516.0" layoutY="392.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="160.0" style="-fx-background-color: #58ACFA; -fx-background-radius: 40px;" text="Projeto 9" textFill="WHITE">
                <font>
                   <Font name="Arial Black" size="12.0" />
                </font>
@@ -78,6 +73,15 @@
             <Button fx:id="projeto01" layoutX="60.0" layoutY="132.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="160.0" style="-fx-background-color: #F5F5F5;" text="Projeto 1" visible="false" />
             <Button fx:id="projeto02" layoutX="284.0" layoutY="132.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="160.0" style="-fx-background-color: #F5F5F5;" text="Projeto 2" visible="false" />
             <Button fx:id="projeto03" layoutX="511.0" layoutY="135.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="160.0" style="-fx-background-color: #F5F5F5;" text="Projeto 3" visible="false" />
+            <Button fx:id="bclickVoltarMenu" layoutX="633.0" layoutY="19.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="37.0" style="-fx-background-color: #faa500; -fx-background-radius: 20px;">
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../projetointegrador.images/pngegg.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
       </Pane>
    </children>
