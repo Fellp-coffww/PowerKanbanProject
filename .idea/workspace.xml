@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="93403507-1572-4365-8228-2c2277ab4d6a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/CadastroAcao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/CadastroAcao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/CadastroAtividade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/CadastroAtividade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/ControllerQuadro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/ControllerQuadro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/JanelaQuadro.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/JanelaQuadro.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/TelaCadastroDeProjetos.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/TelaCadastroDeProjetos.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/hello-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/janelaCadastro.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/janelaCadastro.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/janelaCadastroAtividade.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/janelaCadastroAtividade.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/janelaCadastroColaborador.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/janelaCadastroDepartamento.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/janelaLoginUsuario.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/janelaLoginUsuario.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/telacadastroUsuario.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/telacadastroUsuario.fxml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+        <option value="FxmlFile" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2YE7o8Kg58lodoOCxvXelyrD81F" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/FellipeMagalhaes/IdeaProjects/PowerKanbanProject&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="projetointegrador.Controller" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Unnamed">
+    <configuration name="MainTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="projetointegrador.Model.Test.MainTest" />
+      <module name="ProjectKanbanRev00" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="projetointegrador.Model.Test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="projetointegrador.visual.HelloApplication" />
+      <module name="ProjectKanbanRev00" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MainTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="93403507-1572-4365-8228-2c2277ab4d6a" name="Changes" comment="" />
+      <created>1700079058381</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1700079058381</updated>
+      <workItem from="1700079059240" duration="3175000" />
+      <workItem from="1700142068936" duration="5193000" />
+      <workItem from="1700216603758" duration="108000" />
+      <workItem from="1700216823429" duration="2473000" />
+      <workItem from="1700262447709" duration="268000" />
+      <workItem from="1700512582086" duration="2108000" />
+      <workItem from="1700515192911" duration="176000" />
+      <workItem from="1700516148458" duration="1836000" />
+      <workItem from="1700518008924" duration="356000" />
+      <workItem from="1700518376184" duration="123000" />
+      <workItem from="1700518716192" duration="5798000" />
+      <workItem from="1700604558456" duration="4720000" />
+      <workItem from="1700677683527" duration="1452000" />
+      <workItem from="1700686491213" duration="6912000" />
+      <workItem from="1700772816712" duration="9703000" />
+      <workItem from="1700787625206" duration="4000" />
+      <workItem from="1700787767307" duration="282000" />
+      <workItem from="1700864339953" duration="1011000" />
+      <workItem from="1700865395149" duration="5863000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

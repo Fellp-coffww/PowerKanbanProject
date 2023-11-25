@@ -1,5 +1,4 @@
-package projetointegrador.IO;
-import java.time.format.DateTimeFormatter;
+package projetointegrador.Model.IO;
 import java.util.Scanner;
 
 public class DataValidation {
@@ -24,7 +23,6 @@ public class DataValidation {
             return false;
         }
     }
-
     public Integer isInteger(String string){
         System.out.print(string);
         String temp = "";
@@ -118,45 +116,6 @@ public class DataValidation {
             temp = sc.nextLine();
         }
         return Integer.parseInt(temp);
-    }
-    
-    public boolean ValidaData(String data) {
-        try{
-            boolean bool = false; 
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-            formatter.parse(data);
-            int dia = Integer.parseInt(data.substring(0,2));
-            int mes = Integer.parseInt(data.substring(3,5));
-            int ano = Integer.parseInt(data.substring(6));
-            if(mes == 2 ){
-                if(ano % 4 == 0){
-                            if(dia <= 29){
-                                
-                            }else{
-                                return false;
-                            }
-                        }
-                    }
-            if(mes == 2){
-                if(dia <= 28){
-                    
-                }else{
-                    return false;
-                }
-            }
-            if(mes == 4 || mes == 6 || mes == 9 || mes == 11){
-                if(dia <= 30){
-                    
-                }else{
-                    return false;
-                }
-            }
-            
-                return true;
-            }
-            catch (Exception e){
-            return false;
-            }
     }
 
 
