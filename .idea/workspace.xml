@@ -4,7 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93403507-1572-4365-8228-2c2277ab4d6a" name="Changes" comment="" />
+    <list default="true" id="93403507-1572-4365-8228-2c2277ab4d6a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/CadastroAcao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/CadastroAcao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/CadastroAtividade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/CadastroAtividade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/ControllerQuadro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/ControllerQuadro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/JanelaQuadro.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/JanelaQuadro.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/TelaCadastroDeProjetos.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/TelaCadastroDeProjetos.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/hello-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/janelaCadastro.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/janelaCadastro.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/janelaCadastroAtividade.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/janelaCadastroAtividade.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/janelaCadastroColaborador.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/janelaCadastroDepartamento.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/janelaLoginUsuario.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/janelaLoginUsuario.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/telacadastroUsuario.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/telacadastroUsuario.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,7 +54,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/FellipeMagalhaes/Desktop/Problema edielson/PowerKanbanProject&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/FellipeMagalhaes/IdeaProjects/PowerKanbanProject&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -104,6 +119,8 @@
       <workItem from="1700772816712" duration="9703000" />
       <workItem from="1700787625206" duration="4000" />
       <workItem from="1700787767307" duration="282000" />
+      <workItem from="1700864339953" duration="1011000" />
+      <workItem from="1700865395149" duration="5863000" />
     </task>
     <servers />
   </component>

@@ -65,4 +65,10 @@ public class CadastroAtividade {
     public void setQuadro(Quadro quadro) {
         this.quadro = quadro;
     }
+    @FXML
+    protected void botaoVoltar(){
+
+    }
+
 }
+
