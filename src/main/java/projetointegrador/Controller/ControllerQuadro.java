@@ -43,4 +43,12 @@ public class ControllerQuadro implements Initializable {
     public void setQuadro(Quadro quadro) {
         this.quadro = quadro;
     }
+    @FXML
+    protected void addAtv(){
+
+    }
+    @FXML
+    protected void addAcao(){
+
+    }
 }

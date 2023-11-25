@@ -136,7 +136,7 @@ public class HelloController implements Initializable {
 
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+/*
         quadro = getQuadro();
 
         int Posx[]= {60, 284,516};
@@ -154,6 +154,7 @@ public class HelloController implements Initializable {
             panezona.getChildren().add(addButtonProjeto(quadro.retornaProjeto().get(n), Posx[x], Posy[y]));
             x++;
         }
+  */
     }
 
     @FXML
@@ -183,7 +184,7 @@ public class HelloController implements Initializable {
         Font.loadFont(getClass().getResourceAsStream("/fonts/Arial Black.ttf"), 12);
         button.setBackground(Background.fill(Paint.valueOf("orange")));
         button.setTextFill(Paint.valueOf("WHITE"));
-        button.setStyle("-fx-background-radius: 10;");
+        button.setStyle("-fx-background-radius-: 20px");
         button.setStyle("-fx-font-family: ArialBlack");
         button.fire();
         button.setPrefHeight(64);
@@ -192,6 +193,10 @@ public class HelloController implements Initializable {
         button.setLayoutX(x);
         button.setOnMouseClicked(this::goToQuadro);
         return button;
+
+    }
+    @FXML
+    protected void botaoVolta(){
 
     }
 }

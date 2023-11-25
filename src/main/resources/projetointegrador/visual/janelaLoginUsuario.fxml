@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.PasswordField?>
@@ -11,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projetointegrador.Controller.ControllerUser">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projetointegrador.Controller.ControllerUser">
    <right>
       <AnchorPane prefHeight="500.0" prefWidth="350.0" style="-fx-background-color: #FFA500; -fx-border-color: #000000;" BorderPane.alignment="CENTER">
          <children>
@@ -33,7 +38,6 @@
          <children>
             <TextField fx:id="tnome" layoutX="101.0" layoutY="215.0" promptText="Login" style="-fx-background-radius: 20px; -fx-border-color: #000000; -fx-border-radius: 20px;" />
             <PasswordField fx:id="tpasswd" layoutX="101.0" layoutY="268.0" promptText="Senha" style="-fx-background-radius: 20px; -fx-border-color: #000000; -fx-border-radius: 20px;" />
-            <Hyperlink layoutX="146.0" layoutY="456.0" text="Registrar-se" textFill="ORANGE" />
 
             <ImageView fitHeight="18.0" fitWidth="16.0" layoutX="77.0" layoutY="222.0" pickOnBounds="true" preserveRatio="true">
                <image>

@@ -99,6 +99,18 @@ public class CadastroAcao {
         stage.close();
 
     }
+    @FXML
+    protected void AttCbdep(){
+
+    }
+    @FXML
+    protected void AttCbResp(){
+
+    }
+    @FXML
+    protected void botaoFechar(){
+
+    }
 
 
 }
