@@ -33,7 +33,7 @@
                   <Font name="Arial Black" size="12.0" />
                </font></Button>
             <ImageView fitHeight="74.0" fitWidth="98.0" layoutX="42.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="81.0" fitWidth="83.0" layoutX="42.0" layoutY="27.0">
+            <ImageView fitHeight="81.0" fitWidth="83.0" layoutX="167.0" layoutY="13.0">
                <image>
                   <Image url="@../../projetointegrador.images/kisspng-scrum-sprint-computer-icons-agile-software-develop-kanban-5b466ee864b4e4.3068514415313425684125.png" />
                </image>
@@ -80,6 +80,15 @@
                   </ImageView>
                </graphic>
             </Button>
+            <MenuButton fx:id="bottonMenu" layoutX="53.0" layoutY="36.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="77.0" style="-fx-background-radius: 20px; -fx-background-color: #faa500;" text="Menu">
+              <items>
+                <MenuItem fx:id="altDept" mnemonicParsing="false" text="Alterar Departamento" />
+                <MenuItem fx:id="altColab" mnemonicParsing="false" text="Alterar Colaborador" />
+              </items>
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </MenuButton>
          </children>
       </Pane>
    </children>
