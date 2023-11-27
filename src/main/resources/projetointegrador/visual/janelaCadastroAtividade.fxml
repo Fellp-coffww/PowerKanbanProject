@@ -28,7 +28,7 @@
             <Font name="Arial Black" size="14.0" />
          </font>
       </Text>
-      <Text layoutX="107.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data de inicio:">
+      <Text layoutX="125.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data de inicio:">
          <font>
             <Font name="Arial Black" size="14.0" />
          </font>
