@@ -62,4 +62,8 @@ public class CadastroProjeto {
     public void setQuadro(Quadro quadro) {
         this.quadro = quadro;
     }
+    @FXML
+    protected void BotaoVoltar(){
+        
+    }
 }
