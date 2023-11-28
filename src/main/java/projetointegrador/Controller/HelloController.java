@@ -16,13 +16,14 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import projetointegrador.Model.Entities.Projeto;
 import projetointegrador.Model.Entities.Quadro;
+import projetointegrador.visual.HelloApplication;
 
 import java.io.IOException;
 import java.net.URL;
 import java.nio.ByteBuffer;
 import java.util.ResourceBundle;
 
-public class HelloController implements Initializable {
+public class HelloController  {
 
     private Quadro quadro = new Quadro(); // Objeto Quadro
 
@@ -71,20 +72,28 @@ public class HelloController implements Initializable {
         }
     }
 
-    protected void goToQuadro(MouseEvent event) {
+    public void goToQuadro(MouseEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("janelaQuadro.fxml"));
+            quadro = getQuadro();
+            FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("janelaQuadro.fxml"));
             Parent root = loader.load();
 
-            ControllerQuadro cadastroAcao = loader.getController();
-            cadastroAcao.setQuadro(quadro);
+            ControllerQuadro controllerQuadro = loader.getController();
+            controllerQuadro.setQuadro(getQuadro());
 
+            for(int n = 0; n <quadro.retornaProjeto().size(); n++){
+                if (quadro.retornaProjeto().get(n).getNome().equals(event.getSource().getClass().getName().getClass().getName())){
+                    controllerQuadro.setIndex(n);
+                }
+            }
+
+            controllerQuadro.initialize(quadro);
             Stage novaJanela = new Stage();
-            novaJanela.setTitle("Cadastro de Ações");
+            novaJanela.setTitle("Quadro principal");
             novaJanela.setScene(new Scene(root));
             novaJanela.showAndWait();
 
-            quadro = cadastroAcao.getQuadro();
+            quadro = controllerQuadro.getQuadro();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -95,7 +104,7 @@ public class HelloController implements Initializable {
     @FXML
     protected void onbJanelaClick1() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("janelaCadastroProjeto.fxml"));
+            FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("TelaCadastroDeProjetos.fxml"));
             Parent root = loader.load();
 
             CadastroProjeto cadastroProjeto = loader.getController();
@@ -105,6 +114,7 @@ public class HelloController implements Initializable {
             novaJanela.setTitle("Cadastro de Projetos");
             novaJanela.setScene(new Scene(root));
             novaJanela.showAndWait();
+            testeBotao();
 
             quadro = cadastroProjeto.getQuadro();
         } catch (IOException e) {
@@ -113,26 +123,6 @@ public class HelloController implements Initializable {
     }
 
     // Método acionado ao clicar para abrir a janela de cadastro de Atividade
-    @FXML
-    private void onbJanelaClick2() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("janelaCadastroAtividade.fxml"));
-            Parent root = loader.load();
-
-            CadastroAtividade cadastroAtividade = loader.getController();
-            cadastroAtividade.setQuadro(quadro);
-
-            Stage novaJanela = new Stage();
-            novaJanela.setTitle("Cadastro de Atividades");
-            novaJanela.setScene(new Scene(root));
-            novaJanela.showAndWait();
-
-            quadro = cadastroAtividade.getQuadro();
-            System.out.println(quadro.retornaProjeto().get(0).retornaAtividade().size());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -172,7 +162,9 @@ public class HelloController implements Initializable {
                 y++;
                 x = 0;
             }
-            panezona.getChildren().add(addButtonProjeto(quadro.retornaProjeto().get(n), Posx[x], Posy[y]));
+            Button button = addButtonProjeto(quadro.retornaProjeto().get(n), Posx[x], Posy[y]);
+            button.setId(Integer.toString(n));
+            panezona.getChildren().add(button);
             x++;
         }
         }
@@ -184,9 +176,8 @@ public class HelloController implements Initializable {
         Font.loadFont(getClass().getResourceAsStream("/fonts/Arial Black.ttf"), 12);
         button.setBackground(Background.fill(Paint.valueOf("orange")));
         button.setTextFill(Paint.valueOf("WHITE"));
-        button.setStyle("-fx-background-radius-: 20px");
+       // button.setStyle("-fx-background-radius: 20px");
         button.setStyle("-fx-font-family: ArialBlack");
-        button.fire();
         button.setPrefHeight(64);
         button.setPrefWidth(160);
         button.setLayoutY(y);
@@ -197,6 +188,25 @@ public class HelloController implements Initializable {
     }
     @FXML
     protected void botaoVolta(){
+
+        try {
+            FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("janelaLoginUsuario.fxml"));
+            Parent root = loader.load();
+
+            ControllerUser cadastroProjeto = loader.getController();
+            cadastroProjeto.setQuadro(quadro);
+
+            Stage novaJanela = new Stage();
+            novaJanela.setTitle("Login");
+            novaJanela.setScene(new Scene(root));
+            novaJanela.showAndWait();
+            testeBotao();
+
+            quadro = cadastroProjeto.getQuadro();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
     }
 }
