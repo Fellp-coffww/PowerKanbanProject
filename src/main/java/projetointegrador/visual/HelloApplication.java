@@ -19,6 +19,7 @@ public class HelloApplication extends Application {
 
         Quadro quadro = new Quadro();
         quadro.addUsers(new User("admin","admin", ""));
+        quadro.getDepartamentos().add("RH");
         quadro.addObject(new Projeto(LocalDate.now(), LocalDate.now(),"projeto01"));
         quadro.addObject(new Projeto(LocalDate.now(), LocalDate.now(),"projeto02"));
         quadro.addObject(new Projeto(LocalDate.now(), LocalDate.now(),"projeto03"));

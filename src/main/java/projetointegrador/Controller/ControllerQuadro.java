@@ -50,7 +50,7 @@ public class ControllerQuadro {
 
     public void initialize(Quadro quadro) {
         quadro = getQuadro();
-       // generateActions();
+        generateActions();
         NomeProjeto.setText(quadro.retornaProjeto().get(index).getNome());
 
     }
@@ -64,21 +64,20 @@ public class ControllerQuadro {
     }
     @FXML
     protected void addAtv(){
-
         try {
             FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("janelaCadastroAtividade.fxml"));
             Parent root = loader.load();
 
-            CadastroAtividade cadastroAtividade = loader.getController();
-            cadastroAtividade.setQuadro(quadro);
+            CadastroAtividade cadastroProjeto = loader.getController();
+            cadastroProjeto.setQuadro(quadro);
+            cadastroProjeto.setIndex(index);
 
             Stage novaJanela = new Stage();
-            novaJanela.setTitle("Cadastro de Atividades");
+            novaJanela.setTitle("Cadastro de atividades");
             novaJanela.setScene(new Scene(root));
             novaJanela.showAndWait();
 
-            quadro = cadastroAtividade.getQuadro();
-            System.out.println(quadro.retornaProjeto().get(0).retornaAtividade().size());
+            quadro = cadastroProjeto.getQuadro();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -86,17 +85,20 @@ public class ControllerQuadro {
     @FXML
     protected void addAcao(){
         try {
-            FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("janelaCadastro.fxml"));
+            FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("janelaCadastroAçao.fxml"));
             Parent root = loader.load();
 
             CadastroAcao cadastroAcao = loader.getController();
             cadastroAcao.setQuadro(quadro);
+            cadastroAcao.setIndex(index);
+            cadastroAcao.incializa();
 
             Stage novaJanela = new Stage();
             novaJanela.setTitle("Cadastro de Ações");
             novaJanela.setScene(new Scene(root));
             novaJanela.showAndWait();
 
+            generateActions();
             quadro = cadastroAcao.getQuadro();
             System.out.println(quadro.retornaProjeto().get(0).retornaAtividade().size());
         } catch (IOException e) {
@@ -114,23 +116,20 @@ public class ControllerQuadro {
 
     private void generateActions(){
 
-
         int x = 0;
         int y = 0;
 
         paneAFazer.setPrefWidth(200);
 
-        for(int projeto = 0; projeto< quadro.retornaProjeto().size(); projeto++){
+            for (int atividade  = 0; atividade< quadro.retornaProjeto().get(index).retornaAtividade().size(); atividade++){
 
-            for (int atividade  = 0; atividade< quadro.retornaProjeto().get(projeto).retornaAtividade().size(); atividade++){
-
-                for (int acao = 0 ; acao < quadro.retornaProjeto().get(projeto).retornaAtividade().get(atividade).retornaAção().size(); acao++){
+                for (int acao = 0 ; acao < quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).retornaAção().size(); acao++){
                     paneAFazer.setMaxWidth(y);
-                    paneAFazer.getChildren().add(paneAcao((Acao) quadro.retornaProjeto().get(projeto).retornaAtividade().get(atividade).retornaAção().get(acao),x, y,quadro.retornaProjeto().get(projeto).retornaAtividade().get(atividade).getNome()));
+                    paneAFazer.getChildren().add(paneAcao((Acao) quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).retornaAção().get(acao),x, y,quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).getNome()));
                     y = y + 100;
                 }
             }
-        }
+
 
         aFazer.setContent(paneAFazer);
     }
@@ -151,7 +150,7 @@ public class ControllerQuadro {
         button.prefHeight(173);
         button.prefWidth(71);
         button.setPrefSize(173,71);
-        button.setLayoutX(10);
+        button.setLayoutX(8);
         button.setLayoutY(19);
         button.setStyle("-fx-border-color:  #000000");
 
@@ -173,8 +172,8 @@ public class ControllerQuadro {
         atividade.setLayoutX(14);
         atividade.setLayoutY(0);
         nomeResponsa.setText(acao.getNome()+" - " +acao.getResponsavel());
-        dataIn.setText("In: "+acao.retornaStringInicio());
-        dataOut.setText("Out: "+acao.retornaStringFim());
+        dataIn.setText(acao.retornaStringInicio());
+        dataOut.setText(acao.retornaStringFim());
 
         if(acao.getDataDeTermino().isBefore(LocalDate.now())){
             status.setText("No prazo...");

@@ -6,15 +6,14 @@ import javafx.fxml.FXML;
 import javafx.scene.DepthTest;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import projetointegrador.Model.Entities.Acao;
-import projetointegrador.Model.Entities.Atividade;
-import projetointegrador.Model.Entities.Projeto;
-import projetointegrador.Model.Entities.Quadro;
+import projetointegrador.Model.Entities.*;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 // Classe responsável por controlar a interface de cadastro de uma ação
 public class CadastroAcao {
@@ -22,31 +21,33 @@ public class CadastroAcao {
     // Objeto Quadro
     private Quadro quadro = new Quadro();
 
+    private int index;
+
     // Referências aos elementos da interface gráfica (FXML)
-    @FXML
-    private ComboBox comBoxP; // ComboBox para projetos
 
     @FXML
     private ComboBox comBoxA; // ComboBox para atividades
 
     @FXML
-    private TextField tDatainicio; // Campo de texto para data de início
+    private ComboBox  ComboDep;
 
     @FXML
-    private TextField tDataFinal; // Campo de texto para data final
+    private ComboBox ComboResp;
+
+    @FXML
+    private DatePicker DataInicio; // Campo de texto para data de início
+
+    @FXML
+    private DatePicker DataFim; // Campo de texto para data final
 
     @FXML
     private TextField tNome; // Campo de texto para nome
 
     @FXML
-    private TextField tResponsavel; // Campo de texto para responsável
-
-    @FXML
-    private TextField tDepartamento; // Campo de texto para responsável
-
-
-    @FXML
     private Button bSave; // Botão de salvar
+
+    @FXML
+    private Button BotaoFecharAba;
 
     // Getter e setter para o objeto Quadro
     public Quadro getQuadro() {
@@ -60,24 +61,28 @@ public class CadastroAcao {
     // Método para atualizar o ComboBox de projetos
     @FXML
     protected void AtualizaComboBoxP() {
-        ObservableList<Projeto> observableList;
-        observableList = FXCollections.observableArrayList(quadro.retornaProjeto());
-        comBoxP.setItems(observableList);
+        ObservableList<String> observableListDep;
+        observableListDep = FXCollections.observableArrayList(quadro.getDepartamentos());
+        ComboDep.setItems(observableListDep);
+        ObservableList<User> observableListUser;
+        observableListUser = FXCollections.observableArrayList(quadro.getUsers());
+        ComboResp.setItems(observableListUser);
     }
 
-    // Método para habilitar o ComboBox de atividades se houver projetos
-    @FXML
-    protected void habilitaComboBoxA() {
-        if (comBoxP.getItems().size() > 0) {
-            comBoxA.depthTestProperty().set(DepthTest.ENABLE);
-        }
+    protected void incializa(){
+        AtualizaComboBoxP();
+        //AtualizaComboBoxA();
     }
+
+
+    // Método para habilitar o ComboBox de atividades se houver projetos
+
 
     // Método para atualizar o ComboBox de atividades com base no projeto selecionado
     @FXML
     protected void AtualizaComboBoxA() {
         ObservableList<Atividade> observableList;
-        observableList = FXCollections.observableArrayList(quadro.retornaProjeto().get(comBoxP.getSelectionModel().getSelectedIndex()).retornaAtividade());
+        observableList = FXCollections.observableArrayList(quadro.retornaProjeto().get(index).retornaAtividade());
         comBoxA.setItems(observableList);
     }
 
@@ -85,15 +90,15 @@ public class CadastroAcao {
     @FXML
     protected void saveAcao(){
 
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDate dataInicio = LocalDate.parse(tDatainicio.getText(), dtf);
-        LocalDate dataFinal = LocalDate.parse(tDataFinal.getText(), dtf);
+        LocalDate dataInicio = DataInicio.getValue();
+        LocalDate dataFinal = DataFim.getValue();
+        System.out.println(DataInicio.getValue());
         String nome = tNome.getText();
-        String Responsalvel = tResponsavel.getText();
-        String Departmamento = tDepartamento.getText();
+        String Responsalvel = quadro.getUsers().get(ComboResp.getSelectionModel().getSelectedIndex()).getName();
+        String Departmamento = quadro.getDepartamentos().get(ComboDep.getSelectionModel().getSelectedIndex());
 
-        quadro.retornaProjeto().get(comBoxP.getSelectionModel().getSelectedIndex()).retornaAtividade().get(comBoxA.getSelectionModel().getSelectedIndex()).
-                addObject(new Acao(dataInicio,dataFinal,nome, Responsalvel,Departmamento));
+        quadro.retornaProjeto().get(index).retornaAtividade().get(comBoxA.getSelectionModel().getSelectedIndex()).
+              addObject(new Acao(dataInicio,dataFinal,nome, Responsalvel,Departmamento));
 
         Stage stage = (Stage) bSave.getScene().getWindow();
         stage.close();
@@ -109,8 +114,15 @@ public class CadastroAcao {
     }
     @FXML
     protected void botaoFechar(){
-
+        Stage stage = (Stage) BotaoFecharAba.getScene().getWindow();
+        stage.close();
     }
 
+    public int getIndex() {
+        return index;
+    }
 
+    public void setIndex(int index) {
+        this.index = index;
+    }
 }
