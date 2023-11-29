@@ -54,7 +54,7 @@ public class ControllerUser {
                 // Passa o Quadro para o controlador da nova janela
                 HelloController helloController = loader.getController();
                 helloController.setQuadro(quadro);
-                helloController.testeBotao();
+                helloController.testeBotao(quadro);
                 // Cria um novo Stage
                 Stage novaJanela = new Stage();
                 novaJanela.setTitle("Main");
@@ -139,4 +139,5 @@ public class ControllerUser {
     protected void botaoEntrar(){
         
     }
+
 }

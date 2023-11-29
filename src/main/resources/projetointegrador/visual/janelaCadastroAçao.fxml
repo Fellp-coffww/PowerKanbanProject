@@ -37,8 +37,7 @@
          <font>
             <Font name="Arial Black" size="12.0" />
          </font></Button>
-      <ComboBox fx:id="comBoxP" layoutX="14.0" layoutY="146.0" onAction="#habilitaComboBoxA" onMouseClicked="#AtualizaComboBoxP" prefHeight="27.0" prefWidth="158.0" promptText="Selecionar Projeto:" style="-fx-background-radius: 20px; -fx-border-color: #000000; -fx-border-radius: 20px;" />
-      <ComboBox fx:id="comBoxA" layoutX="190.0" layoutY="146.0" onAction="#AtualizaComboBoxA" onMouseClicked="#AtualizaComboBoxA" prefHeight="27.0" prefWidth="158.0" promptText="Selecionar Atividade:" style="-fx-background-radius: 20px; -fx-border-color: #000000; -fx-border-radius: 20px;" />
+      <ComboBox fx:id="comBoxA" layoutX="105.0" layoutY="150.0" onAction="#AtualizaComboBoxA" onMouseClicked="#AtualizaComboBoxA" prefHeight="27.0" prefWidth="158.0" promptText="Selecionar Atividade:" style="-fx-background-radius: 20px; -fx-border-color: #000000; -fx-border-radius: 20px;" />
       <Text layoutX="36.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data de inicio:">
          <font>
             <Font name="Arial Black" size="14.0" />

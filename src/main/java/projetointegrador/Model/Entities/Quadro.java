@@ -15,6 +15,8 @@ public class Quadro {
     // Lista de users associados ao quadro
     private ArrayList<User> users = new ArrayList<>();
 
+    private ArrayList<String> departamentos = new ArrayList<>();
+
     // Método para adicionar um projeto à lista de projetos do quadro
     public void addObject(Projeto projeto) {
         lista.add(projeto);
@@ -41,4 +43,11 @@ public class Quadro {
         users.add(user);
     }
 
+    public ArrayList<String> getDepartamentos() {
+        return departamentos;
+    }
+
+    public void setDepartamentos(ArrayList<String> departamentos) {
+        this.departamentos = departamentos;
+    }
 }

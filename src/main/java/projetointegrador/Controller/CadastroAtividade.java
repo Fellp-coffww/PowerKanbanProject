@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import projetointegrador.Model.Entities.Atividade;
@@ -13,6 +14,7 @@ import projetointegrador.Model.Entities.Quadro;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 // Controlador para a interface de cadastro de atividades
 public class CadastroAtividade {
@@ -20,39 +22,35 @@ public class CadastroAtividade {
     // Objeto Quadro
     private Quadro quadro = new Quadro();
 
+    private int index;
+
     // Referências aos elementos da interface gráfica (FXML)
     @FXML
     private Button onbSaveA; // Botão para salvar atividade
 
     @FXML
-    private ComboBox<Projeto> comBox; // ComboBox para seleção de projeto
+    private Button  bclickVoltar;
 
     @FXML
     private TextField tNomeA; // Campo de texto para o nome da atividade
 
     @FXML
-    private TextField tDatainicioA; // Campo de texto para a data de início da atividade
+    private DatePicker tDatainicioA; // Campo de texto para a data de início da atividade
 
     @FXML
-    private TextField tDataFinalA; // Campo de texto para a data de finalização da atividade
+    private DatePicker tDataFinalA; // Campo de texto para a data de finalização da atividade
 
     // Método para atualizar o ComboBox com os projetos disponíveis
-    @FXML
-    protected void atualizaComboBox() {
-        ObservableList<Projeto> observableList;
-        observableList = FXCollections.observableArrayList(quadro.retornaProjeto());
-        comBox.setItems(observableList);
-    }
 
     // Método para salvar a atividade associada ao projeto selecionado
     @FXML
     protected void saveAtividade() {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDate DatadeInicio = LocalDate.parse(tDatainicioA.getText(), dtf);
-        LocalDate DatadeFinalizacao = LocalDate.parse(tDataFinalA.getText(), dtf);
+
+        LocalDate DatadeInicio = tDatainicioA.getValue();
+        LocalDate DatadeFinalizacao = tDataFinalA.getValue();
         String nome = tNomeA.getText();
         Atividade atividade = new Atividade(DatadeInicio, DatadeFinalizacao, nome);
-        quadro.retornaProjeto().get(comBox.getSelectionModel().getSelectedIndex()).addObject(atividade);
+        quadro.retornaProjeto().get(index).addObject(atividade);
         Stage stage = (Stage) onbSaveA.getScene().getWindow();
         stage.close();
     }
@@ -68,7 +66,18 @@ public class CadastroAtividade {
     @FXML
     protected void botaoVoltar(){
 
+        Stage stage = (Stage) bclickVoltar.getScene().getWindow();
+        stage.close();
+
+
     }
 
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
+    }
 }
 

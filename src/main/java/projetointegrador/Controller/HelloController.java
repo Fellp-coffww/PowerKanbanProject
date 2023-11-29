@@ -7,6 +7,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
@@ -14,6 +16,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import projetointegrador.Model.Entities.Acao;
 import projetointegrador.Model.Entities.Projeto;
 import projetointegrador.Model.Entities.Quadro;
 import projetointegrador.visual.HelloApplication;
@@ -21,9 +24,12 @@ import projetointegrador.visual.HelloApplication;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.ByteBuffer;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class HelloController  {
+public class HelloController {
+
+    private ArrayList<Button> listaBotao = new ArrayList<>();
 
     private Quadro quadro = new Quadro(); // Objeto Quadro
 
@@ -49,17 +55,27 @@ public class HelloController  {
     @FXML
     protected Pane panezona;
 
+    @FXML
+    protected MenuButton bottonMenu;
+
+    @FXML
+    protected MenuItem altDept;
+
+    @FXML
+    protected MenuItem altColab;
+
 
 
     // Método acionado ao clicar para abrir a janela de cadastro de Ação
     @FXML
     protected void onbJanelaClick() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("janelaCadastroAcao.fxml"));
+            FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("janelaCadastroAcao.fxml"));
             Parent root = loader.load();
 
             CadastroAcao cadastroAcao = loader.getController();
             cadastroAcao.setQuadro(quadro);
+            cadastroAcao.incializa();
 
             Stage novaJanela = new Stage();
             novaJanela.setTitle("Cadastro de Ações");
@@ -67,6 +83,47 @@ public class HelloController  {
             novaJanela.showAndWait();
 
             quadro = cadastroAcao.getQuadro();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    protected void janelaColaborador() {
+        try {
+            FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("telacadastroUsuario.fxml"));
+            Parent root = loader.load();
+
+            ControllerCadastro controllerCadastro = loader.getController();
+            controllerCadastro.inicializa(quadro);
+            controllerCadastro.setQuadro(quadro);
+
+            Stage novaJanela = new Stage();
+            novaJanela.setTitle("Cadastro de colaborador");
+            novaJanela.setScene(new Scene(root));
+            novaJanela.showAndWait();
+
+            quadro = controllerCadastro.getQuadro();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    protected void janelaDepartamento() {
+        try {
+            FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("janelaCadastroDepartamento.fxml"));
+            Parent root = loader.load();
+
+            CadastroDepartamento cadastroDepartamento = loader.getController();
+            cadastroDepartamento.setQuadro(quadro);
+
+            Stage novaJanela = new Stage();
+            novaJanela.setTitle("Cadastro de colaborador");
+            novaJanela.setScene(new Scene(root));
+            novaJanela.showAndWait();
+
+            quadro = cadastroDepartamento.getQuadro();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -80,9 +137,8 @@ public class HelloController  {
 
             ControllerQuadro controllerQuadro = loader.getController();
             controllerQuadro.setQuadro(getQuadro());
-
-            for(int n = 0; n <quadro.retornaProjeto().size(); n++){
-                if (quadro.retornaProjeto().get(n).getNome().equals(event.getSource().getClass().getName().getClass().getName())){
+            for (int n = 0; n < listaBotao.size(); n++) {
+                if (event.getSource().equals(listaBotao.get(n))) {
                     controllerQuadro.setIndex(n);
                 }
             }
@@ -91,7 +147,7 @@ public class HelloController  {
             Stage novaJanela = new Stage();
             novaJanela.setTitle("Quadro principal");
             novaJanela.setScene(new Scene(root));
-            novaJanela.showAndWait();
+            novaJanela.show();
 
             quadro = controllerQuadro.getQuadro();
         } catch (IOException e) {
@@ -114,7 +170,7 @@ public class HelloController  {
             novaJanela.setTitle("Cadastro de Projetos");
             novaJanela.setScene(new Scene(root));
             novaJanela.showAndWait();
-            testeBotao();
+            testeBotao(quadro);
 
             quadro = cadastroProjeto.getQuadro();
         } catch (IOException e) {
@@ -148,35 +204,37 @@ public class HelloController  {
     }
 
     @FXML
-    protected void testeBotao(){
-        quadro = getQuadro();
+    protected void testeBotao(Quadro quadro) {
+        this.quadro = quadro;
 
-        int Posx[]= {60, 284,516};
-        int Posy [] = {132, 266, 392};
+        listaBotao.clear();
+        int Posx[] = {60, 284, 516};
+        int Posy[] = {132, 266, 392};
         int x = 0;
         int y = 0;
 
-        for (int n = 0 ; n< quadro.retornaProjeto().size(); n++){
+        for (int n = 0; n < this.quadro.retornaProjeto().size(); n++) {
 
-            if (x>2){
+            if (x > 2) {
                 y++;
                 x = 0;
             }
-            Button button = addButtonProjeto(quadro.retornaProjeto().get(n), Posx[x], Posy[y]);
+            Button button = addButtonProjeto(this.quadro.retornaProjeto().get(n), Posx[x], Posy[y]);
             button.setId(Integer.toString(n));
+            listaBotao.add(button);
             panezona.getChildren().add(button);
             x++;
         }
-        }
+    }
 
-    protected Button addButtonProjeto(Projeto projeto, int x , int y){
+    protected Button addButtonProjeto(Projeto projeto, int x, int y) {
 
         Button button = new Button();
         button.setText(projeto.getNome());
         Font.loadFont(getClass().getResourceAsStream("/fonts/Arial Black.ttf"), 12);
         button.setBackground(Background.fill(Paint.valueOf("orange")));
         button.setTextFill(Paint.valueOf("WHITE"));
-       // button.setStyle("-fx-background-radius: 20px");
+        // button.setStyle("-fx-background-radius: 20px");
         button.setStyle("-fx-font-family: ArialBlack");
         button.setPrefHeight(64);
         button.setPrefWidth(160);
@@ -186,8 +244,9 @@ public class HelloController  {
         return button;
 
     }
+
     @FXML
-    protected void botaoVolta(){
+    protected void botaoVolta() {
 
         try {
             FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("janelaLoginUsuario.fxml"));
@@ -200,13 +259,20 @@ public class HelloController  {
             novaJanela.setTitle("Login");
             novaJanela.setScene(new Scene(root));
             novaJanela.showAndWait();
-            testeBotao();
+            testeBotao(quadro);
 
             quadro = cadastroProjeto.getQuadro();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    protected void onActionbottonMenu() {
+
+        //System.out.println(bottonMenu.getItems().);
 
 
     }
+
 }

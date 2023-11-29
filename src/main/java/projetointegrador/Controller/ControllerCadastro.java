@@ -1,10 +1,13 @@
 package projetointegrador.Controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -23,7 +26,7 @@ public class ControllerCadastro {
     private TextField TextoUsuarioCadastro;
 
     @FXML
-    private TextField TextoEmailCadastro;
+    private ComboBox selectDepart;
 
     @FXML
     private PasswordField SenhaCadastro;
@@ -32,13 +35,22 @@ public class ControllerCadastro {
     private Button BotaoDeCadastro;
 
 
+   public void inicializa(Quadro quadro){
+
+        ObservableList<String> observableListDep;
+        observableListDep = FXCollections.observableArrayList(quadro.getDepartamentos());
+        selectDepart.setItems(observableListDep);
+    }
 
     @FXML
     protected void ClickDoBotao(){
 
-        User user = new User(TextoUsuarioCadastro.getText(), SenhaCadastro.getText(), TextoEmailCadastro.getText());
+        User user = new User(TextoUsuarioCadastro.getText(), SenhaCadastro.getText(), quadro.getDepartamentos().get(selectDepart.getSelectionModel().getSelectedIndex()));
         quadro.addUsers(user);
-        try {
+
+        Stage stage = (Stage) BotaoDeCadastro.getScene().getWindow();
+        stage.close();
+     /*   try {
             // Carrega o FXML da nova janela
             FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("janelaLoginUsuario.fxml"));
             Parent root = loader.load();
@@ -63,7 +75,9 @@ public class ControllerCadastro {
         } catch (IOException e) {
             e.printStackTrace(); // Lida com a exceção adequadamente na sua aplicação
         }
+    */
     }
+
 
     public Quadro getQuadro() {
         return quadro;
