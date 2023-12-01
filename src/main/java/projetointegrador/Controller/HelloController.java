@@ -1,9 +1,7 @@
 package projetointegrador.Controller;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -12,18 +10,15 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import projetointegrador.Model.Entities.Acao;
 import projetointegrador.Model.Entities.Projeto;
 import projetointegrador.Model.Entities.Quadro;
 import projetointegrador.visual.HelloApplication;
 
 import java.io.IOException;
 import java.net.URL;
-import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 

@@ -5,8 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import projetointegrador.Controller.CadastroAcao;
-import projetointegrador.Controller.ControllerQuadro;
 import projetointegrador.Controller.ControllerUser;
 import projetointegrador.Model.Entities.*;
 
@@ -26,6 +24,12 @@ public class HelloApplication extends Application {
         quadro.addObject(new Projeto(LocalDate.now(), LocalDate.now(),"projeto04"));
         quadro.retornaProjeto().get(0).addObject(new Atividade(LocalDate.now(),LocalDate.now(), "Atividade 01"));
         quadro.retornaProjeto().get(1).addObject(new Atividade(LocalDate.now(),LocalDate.now(), "Atividade 02"));
+        Acao acaoTeste = new Acao(LocalDate.now(),LocalDate.now(), "Açao01","Fellipe","TI");
+        acaoTeste.setPercentual(10);
+        quadro.retornaProjeto().get(0).retornaAtividade().get(0).addObject(acaoTeste);
+        Acao acaoTeste2 = new Acao(LocalDate.now(),LocalDate.now(), "Açao01","Fellipe","TI");
+        acaoTeste2.setPercentual(100);
+        quadro.retornaProjeto().get(0).retornaAtividade().get(0).addObject(acaoTeste2);
         quadro.retornaProjeto().get(0).retornaAtividade().get(0).addObject(new Acao(LocalDate.now(),LocalDate.now(), "Açao01","Fellipe","TI"));
         quadro.retornaProjeto().get(0).retornaAtividade().get(0).addObject(new Acao(LocalDate.now(),LocalDate.now(), "Açao01","Fellipe","TI"));
         quadro.retornaProjeto().get(0).retornaAtividade().get(0).addObject(new Acao(LocalDate.now(),LocalDate.now(), "Açao01","Fellipe","TI"));
@@ -33,10 +37,6 @@ public class HelloApplication extends Application {
         quadro.retornaProjeto().get(0).retornaAtividade().get(0).addObject(new Acao(LocalDate.now(),LocalDate.now(), "Açao01","Fellipe","TI"));
         quadro.retornaProjeto().get(0).retornaAtividade().get(0).addObject(new Acao(LocalDate.now(),LocalDate.now(), "Açao01","Fellipe","TI"));
         quadro.retornaProjeto().get(0).retornaAtividade().get(0).addObject(new Acao(LocalDate.now(),LocalDate.now(), "Açao01","Fellipe","TI"));
-        quadro.retornaProjeto().get(0).retornaAtividade().get(0).addObject(new Acao(LocalDate.now(),LocalDate.now(), "Açao01","Fellipe","TI"));
-        quadro.retornaProjeto().get(0).retornaAtividade().get(0).addObject(new Acao(LocalDate.now(),LocalDate.now(), "Açao01","Fellipe","TI"));
-
-
 
         /*
          * Teste de funcionalidade

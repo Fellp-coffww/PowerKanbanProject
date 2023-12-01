@@ -1,12 +1,17 @@
 package projetointegrador.Controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import projetointegrador.Model.Entities.Projeto;
 import projetointegrador.Model.Entities.Quadro;
+import projetointegrador.visual.HelloApplication;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -30,29 +35,48 @@ public class CadastroProjeto {
     @FXML
     private TextField tNomeP; // Campo de texto para o nome do projeto
 
+    @FXML
+    private Button BotaoFecharAba;
+
+    LocalDate DatadeInicio;
+    LocalDate DatadeFinalizacao;
+
     // Método acionado ao clicar no botão para salvar projeto
     @FXML
-    private void onbSavePClick() {
+    private void onbSavePClick() throws IOException {
         // Obtendo as informações dos campos de texto
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDate DatadeInicio = LocalDate.parse(tDatainicioP.getText(), dtf);
-        LocalDate DatadeFinalizacao = LocalDate.parse(tDataFinalP.getText(), dtf);
-        String nome = tNomeP.getText();
 
-        // Criando um novo projeto com os dados inseridos
-        Projeto projeto = new Projeto(DatadeInicio, DatadeFinalizacao, nome);
+        try {
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            DatadeInicio = LocalDate.parse(tDatainicioP.getText(), dtf);
+            DatadeFinalizacao = LocalDate.parse(tDataFinalP.getText(), dtf);
+            String nome = tNomeP.getText();
 
-        // Adicionando o projeto ao Quadro
-        quadro.addObject(projeto);
+            // Criando um novo projeto com os dados inseridos
+            Projeto projeto = new Projeto(DatadeInicio, DatadeFinalizacao, nome);
 
-        // Imprimindo informações de teste
-        System.out.println(projeto);
-        System.out.println(quadro.retornaProjeto().size());
+            // Adicionando o projeto ao Quadro
+            quadro.addObject(projeto);
 
-        // Fechando a janela atual
-        Stage stage = (Stage) onbSaveP.getScene().getWindow();
-        stage.close();
-    }
+            // Fechando a janela atual
+            Stage stage = (Stage) onbSaveP.getScene().getWindow();
+            stage.close();
+
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+            FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("TelaErro.fxml"));
+            Parent root = loader.load();
+            ControllerErro controllerErro = loader.getController();
+            controllerErro.initialize("Verifique as data de inicio e fim!");
+            Stage novaJanela = new Stage();
+            novaJanela.setTitle("Erro");
+            novaJanela.setScene(new Scene(root));
+            novaJanela.show();
+
+        }}
+
+
 
     // Getters e setters para o objeto Quadro
     public Quadro getQuadro() {
@@ -64,6 +88,10 @@ public class CadastroProjeto {
     }
     @FXML
     protected void BotaoVoltar(){
-        
+
+        Stage stage = (Stage) BotaoFecharAba.getScene().getWindow();
+        stage.close();
+
+
     }
 }

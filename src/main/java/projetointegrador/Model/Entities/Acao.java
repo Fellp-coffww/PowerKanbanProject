@@ -36,12 +36,14 @@ public class Acao {
     private String nome;               // Nome da ação
     private int idx;                   // Indice da lista
 
+    private String descricao;
+
     private String departamento;
 
     private String Responsavel;
 
     // Construtor para inicializar uma Ação com parâmetros específicos
-    public Acao(LocalDate dataDeInicio, LocalDate dataDeTermino, String nome,String departamento ,String responsavel) {
+    public Acao(LocalDate dataDeInicio, LocalDate dataDeTermino, String nome, String departamento , String responsavel) {
         this.dataDeInicio = dataDeInicio;    // Inicializa a data de início com o valor fornecido
         this.dataDeTermino = dataDeTermino;  // Inicializa a data de término com o valor fornecido
         this.nome = nome;                    // Inicializa o nome com o valor fornecido
@@ -140,7 +142,13 @@ public class Acao {
         this.Responsavel = responsavel;
     }
 
+    public String getDescricao() {
+        return descricao;
+    }
 
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
 }
 
 

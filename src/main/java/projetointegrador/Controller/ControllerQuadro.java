@@ -2,18 +2,14 @@ package projetointegrador.Controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.SubScene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
@@ -22,9 +18,7 @@ import projetointegrador.Model.Entities.Quadro;
 import projetointegrador.visual.HelloApplication;
 
 import java.io.IOException;
-import java.net.URL;
 import java.time.LocalDate;
-import java.util.ResourceBundle;
 
 public class ControllerQuadro {
 
@@ -40,9 +34,17 @@ public class ControllerQuadro {
     @FXML
     private ScrollPane aFazer;
 
+    @FXML
+    private ScrollPane sendoFeito;
+
+    @FXML
+    private ScrollPane Finalizado;
+
 
     private Pane paneAFazer = new Pane();
+    private Pane paneFazendo = new Pane();
 
+    private Pane paneFeito = new Pane();
 
     protected void atualizaQuadro(){
 
@@ -116,22 +118,53 @@ public class ControllerQuadro {
 
     private void generateActions(){
 
-        int x = 0;
-        int y = 0;
+        int x =  0;
+        int y1 = 0;
+        int y2 = 0;
+        int y3 = 0;
 
         paneAFazer.setPrefWidth(200);
 
             for (int atividade  = 0; atividade< quadro.retornaProjeto().get(index).retornaAtividade().size(); atividade++){
 
                 for (int acao = 0 ; acao < quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).retornaAção().size(); acao++){
-                    paneAFazer.setMaxWidth(y);
-                    paneAFazer.getChildren().add(paneAcao((Acao) quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).retornaAção().get(acao),x, y,quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).getNome()));
-                    y = y + 100;
+                    if(quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).retornaAcao().get(acao).getPercentual() == 0){
+
+                        paneAFazer.setMaxWidth(y1);
+
+                        paneAFazer.getChildren().add(paneAcao((Acao) quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).retornaAção().get(acao),
+                                x, y1,quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).getNome()));
+
+                        y1 = y1 + 100;
+
+                    } else if (quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).retornaAcao().get(acao).getPercentual() > 0
+                            && quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).retornaAcao().get(acao).getPercentual() < 100) {
+
+                        paneFazendo.setMaxWidth(y2);
+
+                        paneFazendo.getChildren().add(paneAcao((Acao) quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).retornaAção().get(acao)
+                                ,x, y2,quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).getNome()));
+
+                        y2 = y2 + 100;
+
+
+                    }else if(quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).retornaAcao().get(acao).getPercentual() == 100) {
+
+                        paneFeito.setMaxWidth(y3);
+
+                        paneFeito.getChildren().add(paneAcao((Acao) quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).retornaAção().get(acao)
+                                ,x, y3,quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).getNome()));
+
+                        y3 = y3 + 100;
+                    }
+
                 }
             }
 
 
         aFazer.setContent(paneAFazer);
+        sendoFeito.setContent(paneFazendo);
+        Finalizado.setContent(paneFeito);
     }
 
     public Pane paneAcao(Acao acao, int x, int y, String nomeAtividade){
@@ -168,6 +201,10 @@ public class ControllerQuadro {
         Label status = new Label();
         status.setLayoutX(16);
         status.setLayoutY(67);
+        Label percent = new Label();
+        percent.setLayoutX(150);
+        percent.setLayoutY(70);
+        percent.setText(String.valueOf(acao.getPercentual()) + "%");
         Label atividade = new Label(nomeAtividade);
         atividade.setLayoutX(14);
         atividade.setLayoutY(0);
@@ -183,18 +220,19 @@ public class ControllerQuadro {
             status.setTextFill(Paint.valueOf("red"));
 
         }
-
         pane.getChildren().add(button);
         pane.getChildren().add(nomeResponsa);
         pane.getChildren().add(dataIn);
         pane.getChildren().add(dataOut);
         pane.getChildren().add(status);
         pane.getChildren().add(atividade);
+        pane.getChildren().add(percent);
 
 
         return pane;
 
 
     }
+
 
 }

@@ -5,23 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93403507-1572-4365-8228-2c2277ab4d6a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/ControllerErro.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/TelaErro.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/CadastroAcao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/CadastroAcao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/CadastroAtividade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/CadastroAtividade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/CadastroDepartamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/CadastroDepartamento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/ControllerCadastro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/ControllerCadastro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/CadastroProjeto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/CadastroProjeto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/ControllerQuadro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/ControllerQuadro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/ControllerUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/ControllerUser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/projetointegrador/Model/Entities/Quadro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projetointegrador/Model/Entities/Quadro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/projetointegrador/Model/Entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projetointegrador/Model/Entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projetointegrador/Model/Entities/Acao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projetointegrador/Model/Entities/Acao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projetointegrador/Model/Entities/Atividade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projetointegrador/Model/Entities/Atividade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projetointegrador/Model/Test/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projetointegrador/Model/Test/MainTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/projetointegrador/visual/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projetointegrador/visual/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projetointegrador/visual/ListsToControler.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/TelaCadastroDeProjetos.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/TelaCadastroDeProjetos.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/hello-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/janelaCadastroAtividade.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/janelaCadastroAtividade.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/janelaCadastroAçao.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/janelaCadastroAçao.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/janelaCadastroDepartamento.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/janelaCadastroDepartamento.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/telacadastroUsuario.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/telacadastroUsuario.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,8 +32,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="FxmlFile" />
         <option value="Interface" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -52,19 +52,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/FellipeMagalhaes/IdeaProjects/PowerKanbanProject&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/FellipeMagalhaes/IdeaProjects/PowerKanbanProject",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="projetointegrador.Controller" />
@@ -127,6 +128,9 @@
       <workItem from="1700936712681" duration="4564000" />
       <workItem from="1701121878803" duration="12579000" />
       <workItem from="1701179584466" duration="12229000" />
+      <workItem from="1701300453338" duration="348000" />
+      <workItem from="1701434891727" duration="1025000" />
+      <workItem from="1701465379960" duration="6525000" />
     </task>
     <servers />
   </component>
@@ -157,23 +161,13 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/projetointegrador/Controller/HelloController.java</url>
-          <line>97</line>
+          <line>92</line>
           <option name="timeStamp" value="47" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/projetointegrador/Controller/ControllerCadastro.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="48" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/projetointegrador/Controller/ControllerCadastro.java</url>
-          <line>40</line>
-          <option name="timeStamp" value="49" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/projetointegrador/Controller/ControllerCadastro.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="50" />
+          <url>file://$PROJECT_DIR$/src/main/java/projetointegrador/Model/Entities/Atividade.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="53" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
