@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class Atividade  {
 
     // Lista de Ações associadas a esta atividade
-    private ArrayList<Acao> lista = new ArrayList<>();
+    public ArrayList<Acao> lista = new ArrayList<>();
 
     // Atributos da atividade
     private LocalDate dataDeInicio;
