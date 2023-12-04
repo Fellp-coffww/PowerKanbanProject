@@ -62,26 +62,6 @@ public class HelloController {
 
 
     // Método acionado ao clicar para abrir a janela de cadastro de Ação
-    @FXML
-    protected void onbJanelaClick() {
-        try {
-            FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("janelaCadastroAcao.fxml"));
-            Parent root = loader.load();
-
-            CadastroAcao cadastroAcao = loader.getController();
-            cadastroAcao.setQuadro(quadro);
-            cadastroAcao.incializa();
-
-            Stage novaJanela = new Stage();
-            novaJanela.setTitle("Cadastro de Ações");
-            novaJanela.setScene(new Scene(root));
-            novaJanela.showAndWait();
-
-            quadro = cadastroAcao.getQuadro();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     @FXML
     protected void janelaColaborador() {
@@ -160,6 +140,7 @@ public class HelloController {
 
             CadastroProjeto cadastroProjeto = loader.getController();
             cadastroProjeto.setQuadro(quadro);
+            cadastroProjeto.AtualizaComboBoxE();
 
             Stage novaJanela = new Stage();
             novaJanela.setTitle("Cadastro de Projetos");
@@ -175,28 +156,6 @@ public class HelloController {
 
     // Método acionado ao clicar para abrir a janela de cadastro de Atividade
 
-    @FXML
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-/*
-        quadro = getQuadro();
-
-        int Posx[]= {60, 284,516};
-        int Posy [] = {132, 266, 392};
-        int x = 0;
-        int y = 0;
-
-
-        for (int n = 0 ; n< quadro.retornaProjeto().size(); n++){
-
-            if (x>2){
-                y++;
-                x = 0;
-            }
-            panezona.getChildren().add(addButtonProjeto(quadro.retornaProjeto().get(n), Posx[x], Posy[y]));
-            x++;
-        }
-  */
-    }
 
     @FXML
     protected void testeBotao(Quadro quadro) {
@@ -263,10 +222,24 @@ public class HelloController {
     }
 
     @FXML
-    protected void onActionbottonMenu() {
+    protected void janelaEmpresa(){
 
-        //System.out.println(bottonMenu.getItems().);
+        try {
+            FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("janelaCadastroEmpresa.fxml"));
+            Parent root = loader.load();
 
+            CadastroEmpresa cadastroEmpresa = loader.getController();
+            cadastroEmpresa.setQuadro(quadro);
+
+            Stage novaJanela = new Stage();
+            novaJanela.setTitle("Login");
+            novaJanela.setScene(new Scene(root));
+            novaJanela.showAndWait();
+
+            quadro = cadastroEmpresa.getQuadro();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 

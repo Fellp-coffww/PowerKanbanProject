@@ -45,37 +45,57 @@ public class ControllerCadastro {
     @FXML
     protected void ClickDoBotao(){
 
-        User user = new User(TextoUsuarioCadastro.getText(), SenhaCadastro.getText(), quadro.getDepartamentos().get(selectDepart.getSelectionModel().getSelectedIndex()));
-        quadro.addUsers(user);
+       if (TextoUsuarioCadastro.getText().equals("")){
+           try {
+               FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("JanelaErro.fxml"));
+               Parent root = loader.load();
+               ControllerErro controllerErro = loader.getController();
+               controllerErro.initialize("Preecha o nome do usuário");
+               Stage novaJanela = new Stage();
+               novaJanela.setTitle("Erro");
+               novaJanela.setScene(new Scene(root));
+               novaJanela.showAndWait();
+           } catch (Exception e) {
+               System.out.println(e);
+           }
 
-        Stage stage = (Stage) BotaoDeCadastro.getScene().getWindow();
-        stage.close();
-     /*   try {
-            // Carrega o FXML da nova janela
-            FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("janelaLoginUsuario.fxml"));
-            Parent root = loader.load();
+       } else if (SenhaCadastro.getText().equals("")) {
+           try {
+               FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("JanelaErro.fxml"));
+               Parent root = loader.load();
+               ControllerErro controllerErro = loader.getController();
+               controllerErro.initialize("Preecha a senha do usuário");
+               Stage novaJanela = new Stage();
+               novaJanela.setTitle("Erro");
+               novaJanela.setScene(new Scene(root));
+               novaJanela.showAndWait();
+           } catch (Exception e) {
+               System.out.println(e);
+           }
 
-            // Passa o Quadro para o controlador da nova janela
-            ControllerUser helloController = loader.getController();
-            helloController.setQuadro(quadro);
+       }
+       else if (selectDepart.getSelectionModel().getSelectedItem() == null) {
+           try {
+               FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("JanelaErro.fxml"));
+               Parent root = loader.load();
+               ControllerErro controllerErro = loader.getController();
+               controllerErro.initialize("Preencha com um departamento! ");
+               Stage novaJanela = new Stage();
+               novaJanela.setTitle("Erro");
+               novaJanela.setScene(new Scene(root));
+               novaJanela.showAndWait();
+           } catch (Exception e) {
+               System.out.println(e);
+           }
 
-            // Cria um novo Stage
-            Stage novaJanela = new Stage();
-            novaJanela.setTitle("Cadastro");
-            novaJanela.setScene(new Scene(root));
+       } else {
 
-            // Mostra a nova janela
-            novaJanela.show();
+           User user = new User(TextoUsuarioCadastro.getText(), SenhaCadastro.getText(), quadro.getDepartamentos().get(selectDepart.getSelectionModel().getSelectedIndex()));
+           quadro.addUsers(user);
 
-            Stage stage = (Stage) BotaoDeCadastro.getScene().getWindow();
-            stage.close();
-
-            // Atualiza o quadro com as alterações feitas na janela
-            quadro = helloController.getQuadro();
-        } catch (IOException e) {
-            e.printStackTrace(); // Lida com a exceção adequadamente na sua aplicação
-        }
-    */
+           Stage stage = (Stage) BotaoDeCadastro.getScene().getWindow();
+           stage.close();
+       }
     }
 
 

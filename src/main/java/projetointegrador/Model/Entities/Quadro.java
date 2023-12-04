@@ -17,6 +17,8 @@ public class Quadro {
 
     private ArrayList<String> departamentos = new ArrayList<>();
 
+    private ArrayList<String> empresas = new ArrayList<>();
+
     // Método para adicionar um projeto à lista de projetos do quadro
     public void addObject(Projeto projeto) {
         lista.add(projeto);
@@ -49,5 +51,13 @@ public class Quadro {
 
     public void setDepartamentos(ArrayList<String> departamentos) {
         this.departamentos = departamentos;
+    }
+
+    public ArrayList<String> getEmpresas() {
+        return empresas;
+    }
+
+    public void setEmpresas(ArrayList<String> empresas) {
+        this.empresas = empresas;
     }
 }

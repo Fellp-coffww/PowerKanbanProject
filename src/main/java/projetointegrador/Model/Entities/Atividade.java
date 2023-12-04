@@ -39,6 +39,11 @@ public class Atividade  {
         lista.add(acao);
     }
 
+    public void addObject(int endereco, Acao acao){
+
+        lista.add(endereco, acao);
+    }
+
     public ArrayList retornaAção(){
         return lista;
     }

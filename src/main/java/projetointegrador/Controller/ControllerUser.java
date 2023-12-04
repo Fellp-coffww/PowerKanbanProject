@@ -38,7 +38,7 @@ public class ControllerUser {
 
     // Método acionado ao clicar no botão de login
     @FXML
-    protected void onbLoginClick() {
+    protected void onbLoginClick()  {
         lista = quadro.getUsers();
         for (int n = 0; n < lista.size(); n++) {
             if ((tnome.getText().equals(quadro.getUsers().get(n).getName())) && tpasswd.getText().equals(quadro.getUsers().get(n).getPassword())) {
@@ -70,6 +70,24 @@ public class ControllerUser {
                 quadro = helloController.getQuadro();
             } catch (IOException e) {
                 e.printStackTrace(); // Lida com a exceção adequadamente na sua aplicação
+            }
+        }
+        else{
+
+            try {
+
+                FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("JanelaErro.fxml"));
+                Parent root = loader.load();
+                ControllerErro controllerErro = loader.getController();
+                controllerErro.initialize("Usuário e senha não encontrados!");
+                Stage novaJanela = new Stage();
+                novaJanela.setTitle("Erro");
+                novaJanela.setScene(new Scene(root));
+                novaJanela.show();
+            }
+            catch (Exception e){
+                System.out.println(e);
+
             }
         }
     }

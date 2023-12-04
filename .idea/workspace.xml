@@ -5,22 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93403507-1572-4365-8228-2c2277ab4d6a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/ControllerErro.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/TelaErro.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/CadastroEmpresa.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/janelaCadastroEmpresa.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/CadastroAcao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/CadastroAcao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/CadastroAtividade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/CadastroAtividade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/CadastroDepartamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/CadastroDepartamento.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/CadastroProjeto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/CadastroProjeto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/ControllerCadastro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/ControllerCadastro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/ControllerEditarAcao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/ControllerEditarAcao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/ControllerQuadro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/ControllerQuadro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/ControllerUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/ControllerUser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projetointegrador/Controller/HelloController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/projetointegrador/Model/Entities/Acao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projetointegrador/Model/Entities/Acao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/projetointegrador/Model/Entities/Atividade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projetointegrador/Model/Entities/Atividade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/projetointegrador/Model/Test/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projetointegrador/Model/Test/MainTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/projetointegrador/visual/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projetointegrador/visual/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/projetointegrador/visual/ListsToControler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projetointegrador/Model/Entities/Projeto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projetointegrador/Model/Entities/Projeto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/projetointegrador/Model/Entities/Quadro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/projetointegrador/Model/Entities/Quadro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/JanelaEditarPecent.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/JanelaEditarPecent.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/JanelaErro.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/JanelaErro.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/JanelaQuadro.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/JanelaQuadro.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/TelaCadastroDeProjetos.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/TelaCadastroDeProjetos.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/TelaErro.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/hello-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/janelaCadastroAtividade.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/janelaCadastroAtividade.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/janelaCadastroAçao.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/projetointegrador/visual/janelaCadastroAçao.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,7 +49,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
@@ -58,7 +65,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/FellipeMagalhaes/IdeaProjects/PowerKanbanProject",
+    "last_opened_file_path": "C:/Users/FellipeMagalhaes/IdeaProjects/PowerKanbanProject/src/main/resources/projetointegrador/visual",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -69,6 +76,9 @@
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="projetointegrador.Controller" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\FellipeMagalhaes\IdeaProjects\PowerKanbanProject\src\main\resources\projetointegrador\visual" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Unnamed">
@@ -131,6 +141,9 @@
       <workItem from="1701300453338" duration="348000" />
       <workItem from="1701434891727" duration="1025000" />
       <workItem from="1701465379960" duration="6525000" />
+      <workItem from="1701613866050" duration="17617000" />
+      <workItem from="1701643937292" duration="1237000" />
+      <workItem from="1701645465156" duration="7710000" />
     </task>
     <servers />
   </component>
@@ -155,19 +168,15 @@
           <properties class="java.lang.IllegalStateException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.NullPointerException" package="java.lang" />
-          <option name="timeStamp" value="45" />
-        </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/projetointegrador/Controller/HelloController.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/projetointegrador/Controller/ControllerEditarAcao.java</url>
           <line>92</line>
-          <option name="timeStamp" value="47" />
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/projetointegrador/Model/Entities/Atividade.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="53" />
+          <url>file://$PROJECT_DIR$/src/main/java/projetointegrador/Controller/ControllerQuadro.java</url>
+          <line>132</line>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
