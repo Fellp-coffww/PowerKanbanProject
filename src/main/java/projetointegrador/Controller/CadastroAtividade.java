@@ -3,6 +3,9 @@ package projetointegrador.Controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -11,6 +14,7 @@ import javafx.stage.Stage;
 import projetointegrador.Model.Entities.Atividade;
 import projetointegrador.Model.Entities.Projeto;
 import projetointegrador.Model.Entities.Quadro;
+import projetointegrador.visual.HelloApplication;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -49,10 +53,94 @@ public class CadastroAtividade {
         LocalDate DatadeInicio = tDatainicioA.getValue();
         LocalDate DatadeFinalizacao = tDataFinalA.getValue();
         String nome = tNomeA.getText();
-        Atividade atividade = new Atividade(DatadeInicio, DatadeFinalizacao, nome);
-        quadro.retornaProjeto().get(index).addObject(atividade);
-        Stage stage = (Stage) onbSaveA.getScene().getWindow();
-        stage.close();
+
+
+        if (tNomeA.getText().equals("")){
+            try {
+                FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("JanelaErro.fxml"));
+                Parent root = loader.load();
+                ControllerErro controllerErro = loader.getController();
+                controllerErro.initialize("Não é possivel uma atividade sem nome.");
+                Stage novaJanela = new Stage();
+                novaJanela.setTitle("Erro");
+                novaJanela.setScene(new Scene(root));
+                novaJanela.showAndWait();
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        } else if (DatadeInicio == null ){
+            try {
+                FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("JanelaErro.fxml"));
+                Parent root = loader.load();
+                ControllerErro controllerErro = loader.getController();
+                controllerErro.initialize("Verifique as datas de inicio.");
+                Stage novaJanela = new Stage();
+                novaJanela.setTitle("Erro");
+                novaJanela.setScene(new Scene(root));
+                novaJanela.showAndWait();
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        } else if ((DatadeInicio.isBefore(quadro.retornaProjeto().get(index).getDataDeInicio()))) {
+            try {
+                FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("JanelaErro.fxml"));
+                Parent root = loader.load();
+                ControllerErro controllerErro = loader.getController();
+                controllerErro.initialize("Data de inicio da atividade não pode ser menor que a data de inicio do projeto.");
+                Stage novaJanela = new Stage();
+                novaJanela.setTitle("Erro");
+                novaJanela.setScene(new Scene(root));
+                novaJanela.showAndWait();
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        } else if (DatadeFinalizacao == null ) {
+            try {
+                FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("JanelaErro.fxml"));
+                Parent root = loader.load();
+                ControllerErro controllerErro = loader.getController();
+                controllerErro.initialize("Verifique as datas de fim.");
+                Stage novaJanela = new Stage();
+                novaJanela.setTitle("Erro");
+                novaJanela.setScene(new Scene(root));
+                novaJanela.showAndWait();
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        } else if (DatadeFinalizacao.isAfter(quadro.retornaProjeto().get(index).getDataDeTermino())){
+            try {
+                FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("JanelaErro.fxml"));
+                Parent root = loader.load();
+                ControllerErro controllerErro = loader.getController();
+                controllerErro.initialize("Data final da atividade não pode ser maior que a data final do projeto.");
+                Stage novaJanela = new Stage();
+                novaJanela.setTitle("Erro");
+                novaJanela.setScene(new Scene(root));
+                novaJanela.showAndWait();
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+
+        } else if (DatadeFinalizacao.isBefore(DatadeInicio)) {
+            try {
+                FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("JanelaErro.fxml"));
+                Parent root = loader.load();
+                ControllerErro controllerErro = loader.getController();
+                controllerErro.initialize("Data de finalização não pode ser antes que a data de inicio ");
+                Stage novaJanela = new Stage();
+                novaJanela.setTitle("Erro");
+                novaJanela.setScene(new Scene(root));
+                novaJanela.showAndWait();
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }else {
+
+            Atividade atividade = new Atividade(DatadeInicio, DatadeFinalizacao, nome);
+            quadro.retornaProjeto().get(index).addObject(atividade);
+            Stage stage = (Stage) onbSaveA.getScene().getWindow();
+            stage.close();
+        }
     }
 
     // Getters e setters para o objeto Quadro

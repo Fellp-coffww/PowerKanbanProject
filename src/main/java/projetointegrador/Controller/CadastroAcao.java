@@ -3,12 +3,16 @@ package projetointegrador.Controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import projetointegrador.Model.Entities.*;
+import projetointegrador.visual.HelloApplication;
 
 import java.time.LocalDate;
 
@@ -20,31 +24,39 @@ public class CadastroAcao {
 
     private int index;
 
+    private int percent;
+
     // Referências aos elementos da interface gráfica (FXML)
 
     @FXML
-    private ComboBox comBoxA; // ComboBox para atividades
+    protected ComboBox comBoxA; // ComboBox para atividades
 
     @FXML
-    private ComboBox  ComboDep;
+    protected ComboBox  ComboDep;
 
     @FXML
-    private ComboBox ComboResp;
+    protected ComboBox ComboResp;
 
     @FXML
-    private DatePicker DataInicio; // Campo de texto para data de início
+    protected DatePicker DataInicio; // Campo de texto para data de início
+
 
     @FXML
-    private DatePicker DataFim; // Campo de texto para data final
+    protected TextField decription;
 
     @FXML
-    private TextField tNome; // Campo de texto para nome
+    protected DatePicker DataFim; // Campo de texto para data final
+
+    @FXML
+    protected TextField tNome; // Campo de texto para nome
 
     @FXML
     private Button bSave; // Botão de salvar
 
     @FXML
     private Button BotaoFecharAba;
+
+    private int originAct = 999;
 
     // Getter e setter para o objeto Quadro
     public Quadro getQuadro() {
@@ -91,15 +103,152 @@ public class CadastroAcao {
         LocalDate dataFinal = DataFim.getValue();
         System.out.println(DataInicio.getValue());
         String nome = tNome.getText();
-        String Responsalvel = quadro.getUsers().get(ComboResp.getSelectionModel().getSelectedIndex()).getName();
-        String Departmamento = quadro.getDepartamentos().get(ComboDep.getSelectionModel().getSelectedIndex());
+        String descricao = decription.getText();
 
-        quadro.retornaProjeto().get(index).retornaAtividade().get(comBoxA.getSelectionModel().getSelectedIndex()).
-              addObject(new Acao(dataInicio,dataFinal,nome, Responsalvel,Departmamento));
+        if(nome.equals("")){
 
-        Stage stage = (Stage) bSave.getScene().getWindow();
-        stage.close();
+            try {
+                FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("JanelaErro.fxml"));
+                Parent root = loader.load();
+                ControllerErro controllerErro = loader.getController();
+                controllerErro.initialize("Não é possível uma ação sem nome");
+                Stage novaJanela = new Stage();
+                novaJanela.setTitle("Erro");
+                novaJanela.setScene(new Scene(root));
+                novaJanela.showAndWait();
+            } catch (Exception e) {
+                System.out.println(e);
+            }
 
+        } else if (comBoxA.getSelectionModel().getSelectedItem() == null) {
+            try {
+                FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("JanelaErro.fxml"));
+                Parent root = loader.load();
+                ControllerErro controllerErro = loader.getController();
+                controllerErro.initialize("Selecione uma atividade para cadastrar uma ação");
+                Stage novaJanela = new Stage();
+                novaJanela.setTitle("Erro");
+                novaJanela.setScene(new Scene(root));
+                novaJanela.showAndWait();
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        } else if (dataInicio == null) {
+
+            try {
+                FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("JanelaErro.fxml"));
+                Parent root = loader.load();
+                ControllerErro controllerErro = loader.getController();
+                controllerErro.initialize("Verifique a data de inicio da acao");
+                Stage novaJanela = new Stage();
+                novaJanela.setTitle("Erro");
+                novaJanela.setScene(new Scene(root));
+                novaJanela.showAndWait();
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+            
+        } else if (dataFinal == null) {
+
+            try {
+                FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("JanelaErro.fxml"));
+                Parent root = loader.load();
+                ControllerErro controllerErro = loader.getController();
+                controllerErro.initialize("Verifique a data de finalização da acao");
+                Stage novaJanela = new Stage();
+                novaJanela.setTitle("Erro");
+                novaJanela.setScene(new Scene(root));
+                novaJanela.showAndWait();
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        } else if (dataInicio.isBefore(quadro.retornaProjeto().get(index).retornaAtividade().get(comBoxA.getSelectionModel().getSelectedIndex()).getDataDeInicio())) {
+            try {
+                FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("JanelaErro.fxml"));
+                Parent root = loader.load();
+                ControllerErro controllerErro = loader.getController();
+                controllerErro.initialize("Data de inicio da ação não pode ser menor que a data de inicio da atividade.");
+                Stage novaJanela = new Stage();
+                novaJanela.setTitle("Erro");
+                novaJanela.setScene(new Scene(root));
+                novaJanela.showAndWait();
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        } else if (dataFinal.isAfter(quadro.retornaProjeto().get(index).retornaAtividade().get(comBoxA.getSelectionModel().getSelectedIndex()).getDataDeTermino())) {
+            try {
+                FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("JanelaErro.fxml"));
+                Parent root = loader.load();
+                ControllerErro controllerErro = loader.getController();
+                controllerErro.initialize("Data de finalização da ação não pode ser maior que a data de finalização da atividade.");
+                Stage novaJanela = new Stage();
+                novaJanela.setTitle("Erro");
+                novaJanela.setScene(new Scene(root));
+                novaJanela.showAndWait();
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        } else if (ComboResp.getSelectionModel().getSelectedItem() == null) {
+            try {
+                FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("JanelaErro.fxml"));
+                Parent root = loader.load();
+                ControllerErro controllerErro = loader.getController();
+                controllerErro.initialize("Selecione um responsável pela atividade");
+                Stage novaJanela = new Stage();
+                novaJanela.setTitle("Erro");
+                novaJanela.setScene(new Scene(root));
+                novaJanela.showAndWait();
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+        else if (ComboDep.getSelectionModel().getSelectedItem() == null) {
+            try {
+                FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("JanelaErro.fxml"));
+                Parent root = loader.load();
+                ControllerErro controllerErro = loader.getController();
+                controllerErro.initialize("Selecione um departamento para a ação");
+                Stage novaJanela = new Stage();
+                novaJanela.setTitle("Erro");
+                novaJanela.setScene(new Scene(root));
+                novaJanela.showAndWait();
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        } else if (dataFinal.isBefore(dataInicio)) {
+            try {
+                FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("JanelaErro.fxml"));
+                Parent root = loader.load();
+                ControllerErro controllerErro = loader.getController();
+                controllerErro.initialize("Data de finalização não pode ser antes que a data de inicio ");
+                Stage novaJanela = new Stage();
+                novaJanela.setTitle("Erro");
+                novaJanela.setScene(new Scene(root));
+                novaJanela.showAndWait();
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+        else {
+            String Responsavel = quadro.getUsers().get(ComboResp.getSelectionModel().getSelectedIndex()).getName();
+            String Departmamento = quadro.getDepartamentos().get(ComboDep.getSelectionModel().getSelectedIndex());
+            Acao acao = new Acao(dataInicio, dataFinal, nome, Responsavel, Departmamento);
+            acao.setDescricao(descricao);
+
+            if (originAct  == 999) {
+                quadro.retornaProjeto().get(index).retornaAtividade().get(comBoxA.getSelectionModel().getSelectedIndex()).
+                        addObject(acao);
+
+            }
+            else {
+                quadro.retornaProjeto().get(index).retornaAtividade().get(comBoxA.getSelectionModel().getSelectedIndex()).retornaAcao().remove(originAct);
+                quadro.retornaProjeto().get(index).retornaAtividade().get(comBoxA.getSelectionModel().getSelectedIndex()).
+                        addObject(originAct, acao);
+
+            }
+            Stage stage = (Stage) bSave.getScene().getWindow();
+            stage.close();
+        }
     }
     @FXML
     protected void AttCbdep(){
@@ -109,8 +258,11 @@ public class CadastroAcao {
     protected void AttCbResp(){
 
     }
+
+
+
     @FXML
-    protected void botaoFechar(){
+    protected void BotaoVoltar(){
         Stage stage = (Stage) BotaoFecharAba.getScene().getWindow();
         stage.close();
     }
@@ -121,5 +273,21 @@ public class CadastroAcao {
 
     public void setIndex(int index) {
         this.index = index;
+    }
+
+    public int getOriginAct() {
+        return originAct;
+    }
+
+    public void setOriginAct(int originAct) {
+        this.originAct = originAct;
+    }
+
+    public int getPercent() {
+        return percent;
+    }
+
+    public void setPercent(int percent) {
+        this.percent = percent;
     }
 }

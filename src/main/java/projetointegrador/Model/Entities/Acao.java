@@ -42,6 +42,8 @@ public class Acao {
 
     private String Responsavel;
 
+    private boolean atrasao;
+
     // Construtor para inicializar uma Ação com parâmetros específicos
     public Acao(LocalDate dataDeInicio, LocalDate dataDeTermino, String nome, String departamento , String responsavel) {
         this.dataDeInicio = dataDeInicio;    // Inicializa a data de início com o valor fornecido
@@ -61,10 +63,17 @@ public class Acao {
 
     // Método para atualizar o percentual baseado nas datas de início e término
 
-    public void atualizaPercentualPorData() {
-        this.percentual = (LocalDate.now().getDayOfMonth() - dataDeInicio.getDayOfMonth() * 100) /
-                (dataDeTermino.getDayOfMonth() - dataDeInicio.getDayOfMonth());
-    }
+    public int atualizaPercentualPorData() {
+
+        if (dataDeTermino.getDayOfMonth() - dataDeInicio.getDayOfMonth() != 0) {
+
+            return (LocalDate.now().getDayOfMonth() - dataDeInicio.getDayOfMonth() * 100) /
+                    (dataDeTermino.getDayOfMonth() - dataDeInicio.getDayOfMonth());
+
+        } else
+            return 100;
+
+        }
 
     // Método para atualizar o percentual manualmente com um valor fornecido
 
@@ -148,6 +157,14 @@ public class Acao {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public boolean getAtrasao() {
+        return atrasao;
+    }
+
+    public void setAtrasao(boolean atrasao) {
+        this.atrasao = atrasao;
     }
 }
 

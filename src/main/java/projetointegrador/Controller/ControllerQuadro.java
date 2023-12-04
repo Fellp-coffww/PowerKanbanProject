@@ -1,11 +1,18 @@
 package projetointegrador.Controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
@@ -19,8 +26,14 @@ import projetointegrador.visual.HelloApplication;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class ControllerQuadro {
+
+    private ArrayList<Node> activeActions = new ArrayList<>();
+
+    private ArrayList<String> adresses = new ArrayList<>();
 
     private Quadro quadro;
 
@@ -40,20 +53,112 @@ public class ControllerQuadro {
     @FXML
     private ScrollPane Finalizado;
 
+    @FXML
+    private ProgressBar PercentProjeto;
+
+    @FXML
+    private Label NomePercent;
+
+    @FXML
+    private Label Percent;
+
+    @FXML
+    private Label DataProjeto;
 
     private Pane paneAFazer = new Pane();
     private Pane paneFazendo = new Pane();
 
     private Pane paneFeito = new Pane();
 
+    @FXML
+    private BarChart GrafPercent;
+
+    @FXML
+    private BarChart GrafAtraso;
+
     protected void atualizaQuadro(){
 
     }
 
     public void initialize(Quadro quadro) {
+
         quadro = getQuadro();
-        generateActions();
         NomeProjeto.setText(quadro.retornaProjeto().get(index).getNome());
+        PercentProjeto.progressProperty().set(quadro.retornaProjeto().get(index).getPercentual()/10);
+        DataProjeto.setText(quadro.retornaProjeto().get(index).retornaStringInicio() + " - " + quadro.retornaProjeto().get(index).retornaStringFim());
+        NomePercent.setText(quadro.retornaProjeto().get(index).getNome());
+        Percent.setText(Integer.toString(quadro.retornaProjeto().get(index).getPercentual()) + "%");
+        graficoAtividades();
+        generateActions();
+        graficoAtraso();
+
+    }
+
+    protected void graficoAtividades(){
+        atualizaPercentAtividade();
+        GrafPercent.getData().clear();
+        CategoryAxis EixoX = new CategoryAxis();
+        NumberAxis EixoY = new NumberAxis();
+        GrafPercent.setTitle("Atividades");
+        XYChart.Series<String, Number> series =  new XYChart.Series<>();
+
+        for (int atividade = 0 ; atividade < quadro.retornaProjeto().get(index).retornaAtividade().size(); atividade++){
+
+            series.getData().add(new XYChart.Data<>(quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).getNome(), quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).getPercentual()));
+
+        }
+
+    GrafPercent.getData().add(series);
+
+    }
+    protected void graficoAtraso(){
+
+        GrafAtraso.getData().clear();
+        CategoryAxis EixoX = new CategoryAxis();
+        NumberAxis EixoY = new NumberAxis();
+        GrafAtraso.setTitle("Atrasos");
+        XYChart.Series<String, Number> series =  new XYChart.Series<>();
+
+        int atrasadas = 0;
+        int noPrazo = 0;
+
+        for(int n = 0; n< quadro.retornaProjeto().get(index).retornaAtividade().size(); n++){
+
+            for (int x = 0; x < quadro.retornaProjeto().get(index).retornaAtividade().get(n).retornaAcao().size(); x++){
+              if (quadro.retornaProjeto().get(index).retornaAtividade().get(n).retornaAcao().get(x).getAtrasao()){
+
+                  atrasadas++;
+
+              }else noPrazo++;
+            }
+            }
+
+        series.getData().add(new XYChart.Data<>("Atradados", atrasadas));
+        series.getData().add(new XYChart.Data<>("No prazo", noPrazo));
+
+        GrafAtraso.getData().add(series);
+
+    }
+
+    protected void atualizaPercentAtividade(){
+
+        int percentSoma = 0;
+        int quant = 1;
+
+        if (quadro.retornaProjeto().get(index).retornaAtividade().size() > 0) {
+
+            for (int n = 0; n < quadro.retornaProjeto().get(index).retornaAtividade().size(); n++) {
+
+                for (int x = 0; x < quadro.retornaProjeto().get(index).retornaAtividade().get(n).retornaAcao().size(); x++) {
+                    percentSoma = percentSoma + quadro.retornaProjeto().get(index).retornaAtividade().get(n).retornaAcao().get(x).getPercentual();
+                    quant++;
+                }
+
+                quadro.retornaProjeto().get(index).retornaAtividade().get(n).setPercentual(percentSoma / quant);
+                percentSoma = 0;
+                quant = 0;
+            }
+        }
 
     }
 
@@ -118,22 +223,45 @@ public class ControllerQuadro {
 
     private void generateActions(){
 
+        int somaPercentual =0;
+        int soma = 0;
+
+
         int x =  0;
         int y1 = 0;
         int y2 = 0;
         int y3 = 0;
 
+        paneAFazer.getChildren().clear();
+        paneFeito.getChildren().clear();
+        paneFazendo.getChildren().clear();
+
         paneAFazer.setPrefWidth(200);
+        paneFeito.setPrefWidth(200);
+        paneFazendo.setPrefWidth(200);
 
             for (int atividade  = 0; atividade< quadro.retornaProjeto().get(index).retornaAtividade().size(); atividade++){
 
+                int somaAtividade = 0;
+                int somaAtividadePercentual = 0;
+
                 for (int acao = 0 ; acao < quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).retornaAção().size(); acao++){
+
+                    somaAtividadePercentual  = somaAtividade +  quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).retornaAcao().get(acao).getPercentual();
+                    somaAtividade++;
+
                     if(quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).retornaAcao().get(acao).getPercentual() == 0){
 
                         paneAFazer.setMaxWidth(y1);
 
-                        paneAFazer.getChildren().add(paneAcao((Acao) quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).retornaAção().get(acao),
-                                x, y1,quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).getNome()));
+                        Pane Action = paneAcao((Acao) quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).retornaAção().get(acao),
+                                x, y1,quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).getNome(), quadro.retornaProjeto().get(index).retornaAtividade()
+                                        .get(atividade).getPercentual());
+                        somaPercentual = somaPercentual + quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).retornaAcao().get(acao).getPercentual();
+                        soma++;
+                        activeActions.add(Action.getChildren().get(0));
+                        paneAFazer.getChildren().add(Action);
+                        adresses.add(Integer.toString(atividade) +"/"+ Integer.toString(acao));
 
                         y1 = y1 + 100;
 
@@ -142,8 +270,17 @@ public class ControllerQuadro {
 
                         paneFazendo.setMaxWidth(y2);
 
-                        paneFazendo.getChildren().add(paneAcao((Acao) quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).retornaAção().get(acao)
-                                ,x, y2,quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).getNome()));
+                        Pane Action = paneAcao((Acao) quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).retornaAção().get(acao),
+                                x, y2,quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).getNome() ,quadro.retornaProjeto().get(index).retornaAtividade()
+                                        .get(atividade).getPercentual());
+
+                        somaPercentual = somaPercentual + quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).retornaAcao().get(acao).getPercentual();
+                        soma++;
+
+                        activeActions.add(Action.getChildren().get(0));
+
+                        paneFazendo.getChildren().add(Action);
+                        adresses.add(Integer.toString(atividade) +"/"+ Integer.toString(acao));
 
                         y2 = y2 + 100;
 
@@ -152,22 +289,34 @@ public class ControllerQuadro {
 
                         paneFeito.setMaxWidth(y3);
 
-                        paneFeito.getChildren().add(paneAcao((Acao) quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).retornaAção().get(acao)
-                                ,x, y3,quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).getNome()));
+                        Pane Action = paneAcao((Acao) quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).retornaAção().get(acao),
+                                x, y3,quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).getNome(), quadro.retornaProjeto().get(index).retornaAtividade()
+                                        .get(atividade).getPercentual());
+
+                        somaPercentual = somaPercentual + quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).retornaAcao().get(acao).getPercentual();
+                        soma++;
+
+                        activeActions.add(Action.getChildren().get(0));
+                        adresses.add(Integer.toString(atividade) +"/"+ Integer.toString(acao));
+
+                        paneFeito.getChildren().add(Action);
 
                         y3 = y3 + 100;
                     }
 
                 }
+              //  quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).setPercentual(somaAtividadePercentual/somaAtividade);
+
             }
-
-
         aFazer.setContent(paneAFazer);
         sendoFeito.setContent(paneFazendo);
         Finalizado.setContent(paneFeito);
+        if (soma != 0){
+            quadro.retornaProjeto().get(index).setPercentual((somaPercentual / soma));
+        }
     }
 
-    public Pane paneAcao(Acao acao, int x, int y, String nomeAtividade){
+    public Pane paneAcao(Acao acao, int x, int y, String nomeAtividade, int percentAtv){
 
         Pane pane = new Pane();
         pane.setLayoutX(x);
@@ -181,12 +330,12 @@ public class ControllerQuadro {
         button.setStyle("-fx-background-radius: 20px");
         button.setStyle("-fx-font-family: ArialBlack");
         button.prefHeight(173);
-        button.prefWidth(71);
-        button.setPrefSize(173,71);
+        button.prefWidth(80);
+        button.setPrefSize(173,80);
         button.setLayoutX(8);
         button.setLayoutY(19);
         button.setStyle("-fx-border-color:  #000000");
-
+        button.setOnAction(this::editPercent);
 
         Label nomeResponsa = new Label();
         nomeResponsa.setLayoutX(17);
@@ -205,19 +354,21 @@ public class ControllerQuadro {
         percent.setLayoutX(150);
         percent.setLayoutY(70);
         percent.setText(String.valueOf(acao.getPercentual()) + "%");
-        Label atividade = new Label(nomeAtividade);
+        Label atividade = new Label(nomeAtividade +" - "+ percentAtv + "%");
         atividade.setLayoutX(14);
         atividade.setLayoutY(0);
-        nomeResponsa.setText(acao.getNome()+" - " +acao.getResponsavel());
+        nomeResponsa.setText(acao.getNome()+" - " +acao.getResponsavel() + " - " + acao.getDataDeInicio().datesUntil(acao.getDataDeTermino()).count()+ " dias" + " - " +
+                acao.atualizaPercentualPorData()+"%");
         dataIn.setText(acao.retornaStringInicio());
         dataOut.setText(acao.retornaStringFim());
 
-        if(acao.getDataDeTermino().isBefore(LocalDate.now())){
+        if(acao.getDataDeInicio().isAfter(LocalDate.now())){
             status.setText("No prazo...");
         }
         else {
             status.setText("Atrasado");
             status.setTextFill(Paint.valueOf("red"));
+            acao.setAtrasao(true);
 
         }
         pane.getChildren().add(button);
@@ -230,6 +381,69 @@ public class ControllerQuadro {
 
 
         return pane;
+
+
+    }
+
+    protected void editPercent(ActionEvent event){
+
+        try {
+            FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("JanelaEditarPecent.fxml"));
+            Parent root = loader.load();
+
+            ControllerEditarAcao controllerEditarAcao = loader.getController();
+            controllerEditarAcao.setQuadro(quadro);
+
+            for (int n = 0; n < activeActions.size(); n++) {
+                if (event.getSource().equals(activeActions.get(n))) {
+
+                    Scanner sc = new Scanner(adresses.get(n)).useDelimiter("/");
+                    controllerEditarAcao.setIndexAtv(sc.nextInt());
+                    controllerEditarAcao.setIndexAction(sc.nextInt());
+
+                }
+            }
+
+            controllerEditarAcao.setIndexPrj(index);
+            controllerEditarAcao.initialize();
+            Stage novaJanela = new Stage();
+            novaJanela.setTitle("Edição de Ações");
+            novaJanela.setScene(new Scene(root));
+            novaJanela.showAndWait();
+            initialize(quadro);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @FXML
+    protected void editProjeto(){
+
+        try {
+            FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("TelaCadastroDeProjetos.fxml"));
+            Parent root = loader.load();
+
+            CadastroProjeto cadastroProjeto = loader.getController();
+            cadastroProjeto.setQuadro(quadro);
+
+            cadastroProjeto.tNomeP.setText(quadro.retornaProjeto().get(index).getNome());
+            cadastroProjeto.tDataFinalP.setValue(quadro.retornaProjeto().get(index).getDataDeTermino());
+            cadastroProjeto.tDatainicioP.setValue(quadro.retornaProjeto().get(index).getDataDeInicio());
+            cadastroProjeto.setOrigin(index);
+
+            Stage novaJanela = new Stage();
+            novaJanela.setTitle("Cadastro de Projetos");
+            novaJanela.setScene(new Scene(root));
+            novaJanela.showAndWait();
+
+            initialize(cadastroProjeto.getQuadro());
+            quadro = cadastroProjeto.getQuadro();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
 
     }

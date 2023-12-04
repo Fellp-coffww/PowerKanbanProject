@@ -93,4 +93,14 @@ public class Projeto {
     public String toString() {
         return this.nome;
     }
+
+    public String retornaStringInicio(){
+        String temp = this.dataDeInicio.getDayOfMonth()+"/"+this.dataDeInicio.getMonthValue()+"/"+this.dataDeInicio.getYear();
+        return temp;
+    }
+
+    public String retornaStringFim(){
+        String temp = this.dataDeTermino.getDayOfMonth()+"/"+this.dataDeTermino.getMonthValue()+"/"+this.dataDeTermino.getYear();
+        return temp;
+    }
 }
