@@ -60,4 +60,6 @@ public class Quadro {
     public void setEmpresas(ArrayList<String> empresas) {
         this.empresas = empresas;
     }
+
+
 }

@@ -113,11 +113,25 @@ public class CadastroProjeto {
                 } catch (Exception e) {
                     System.out.println(e);
                 }
+            } else if (quadro.retornaProjeto().size() >= 9) {
+                try {
+                    FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("JanelaErro.fxml"));
+                    Parent root = loader.load();
+                    ControllerErro controllerErro = loader.getController();
+                    controllerErro.initialize("Não é possível cadastrar mais de 9 projetos");
+                    Stage novaJanela = new Stage();
+                    novaJanela.setTitle("Erro");
+                    novaJanela.setScene(new Scene(root));
+                    novaJanela.showAndWait();
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
             }
               else {
 
                 // Criando um novo projeto com os dados inseridos
                 Projeto projeto = new Projeto(DatadeInicio, DatadeFinalizacao, nome);
+                projeto.setEmpresa(quadro.getEmpresas().get(comBoxE.getSelectionModel().getSelectedIndex()  ));
 
                 if (origin == 999) {
                     // Adicionando o projeto ao Quadro

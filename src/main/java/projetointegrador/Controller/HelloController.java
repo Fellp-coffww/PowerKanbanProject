@@ -122,9 +122,9 @@ public class HelloController {
             Stage novaJanela = new Stage();
             novaJanela.setTitle("Quadro principal");
             novaJanela.setScene(new Scene(root));
-            novaJanela.show();
-
+            novaJanela.showAndWait();
             quadro = controllerQuadro.getQuadro();
+            testeBotao(quadro);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -146,9 +146,9 @@ public class HelloController {
             novaJanela.setTitle("Cadastro de Projetos");
             novaJanela.setScene(new Scene(root));
             novaJanela.showAndWait();
-            testeBotao(quadro);
 
             quadro = cadastroProjeto.getQuadro();
+            testeBotao(quadro);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -160,10 +160,10 @@ public class HelloController {
     @FXML
     protected void testeBotao(Quadro quadro) {
         this.quadro = quadro;
-
+        panezona.getChildren().clear();
         listaBotao.clear();
         int Posx[] = {60, 284, 516};
-        int Posy[] = {132, 266, 392};
+        int Posy[] = {72, 206, 332};
         int x = 0;
         int y = 0;
 

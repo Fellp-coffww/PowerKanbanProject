@@ -41,6 +41,9 @@ public class ControllerQuadro {
 
 
     @FXML
+    protected Button buttonRmv;
+
+    @FXML
     private  Label NomeProjeto;
 
 
@@ -52,9 +55,6 @@ public class ControllerQuadro {
 
     @FXML
     private ScrollPane Finalizado;
-
-    @FXML
-    private ProgressBar PercentProjeto;
 
     @FXML
     private Label NomePercent;
@@ -84,7 +84,6 @@ public class ControllerQuadro {
 
         quadro = getQuadro();
         NomeProjeto.setText(quadro.retornaProjeto().get(index).getNome());
-        PercentProjeto.progressProperty().set(quadro.retornaProjeto().get(index).getPercentual()/10);
         DataProjeto.setText(quadro.retornaProjeto().get(index).retornaStringInicio() + " - " + quadro.retornaProjeto().get(index).retornaStringFim());
         NomePercent.setText(quadro.retornaProjeto().get(index).getNome());
         Percent.setText(Integer.toString(quadro.retornaProjeto().get(index).getPercentual()) + "%");
@@ -236,9 +235,9 @@ public class ControllerQuadro {
         paneFeito.getChildren().clear();
         paneFazendo.getChildren().clear();
 
-        paneAFazer.setPrefWidth(200);
-        paneFeito.setPrefWidth(200);
-        paneFazendo.setPrefWidth(200);
+        paneAFazer.setPrefWidth(250);
+        paneFeito.setPrefWidth(250);
+        paneFazendo.setPrefWidth(250);
 
             for (int atividade  = 0; atividade< quadro.retornaProjeto().get(index).retornaAtividade().size(); atividade++){
 
@@ -254,9 +253,15 @@ public class ControllerQuadro {
 
                         paneAFazer.setMaxWidth(y1);
 
+                        int atraso = 0;
+
+                        if (quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).retornaAcao().get(acao).getDataDeInicio().isBefore(LocalDate.now())){
+                            atraso = 1;
+                        }
+
                         Pane Action = paneAcao((Acao) quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).retornaAção().get(acao),
                                 x, y1,quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).getNome(), quadro.retornaProjeto().get(index).retornaAtividade()
-                                        .get(atividade).getPercentual());
+                                        .get(atividade).getPercentual(), atraso);
                         somaPercentual = somaPercentual + quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).retornaAcao().get(acao).getPercentual();
                         soma++;
                         activeActions.add(Action.getChildren().get(0));
@@ -270,9 +275,14 @@ public class ControllerQuadro {
 
                         paneFazendo.setMaxWidth(y2);
 
+                        int atraso = 0;
+
+                        if (quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).retornaAcao().get(acao).getDataDeInicio().isAfter(LocalDate.now())){
+                            atraso = 1;
+                        }
                         Pane Action = paneAcao((Acao) quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).retornaAção().get(acao),
                                 x, y2,quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).getNome() ,quadro.retornaProjeto().get(index).retornaAtividade()
-                                        .get(atividade).getPercentual());
+                                        .get(atividade).getPercentual(), atraso);
 
                         somaPercentual = somaPercentual + quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).retornaAcao().get(acao).getPercentual();
                         soma++;
@@ -288,10 +298,10 @@ public class ControllerQuadro {
                     }else if(quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).retornaAcao().get(acao).getPercentual() == 100) {
 
                         paneFeito.setMaxWidth(y3);
-
+                        int atraso = 2;
                         Pane Action = paneAcao((Acao) quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).retornaAção().get(acao),
                                 x, y3,quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).getNome(), quadro.retornaProjeto().get(index).retornaAtividade()
-                                        .get(atividade).getPercentual());
+                                        .get(atividade).getPercentual(), atraso);
 
                         somaPercentual = somaPercentual + quadro.retornaProjeto().get(index).retornaAtividade().get(atividade).retornaAcao().get(acao).getPercentual();
                         soma++;
@@ -316,13 +326,13 @@ public class ControllerQuadro {
         }
     }
 
-    public Pane paneAcao(Acao acao, int x, int y, String nomeAtividade, int percentAtv){
+    public Pane paneAcao(Acao acao, int x, int y, String nomeAtividade, int percentAtv, int atraso){
 
         Pane pane = new Pane();
         pane.setLayoutX(x);
         pane.setLayoutY(y);
         pane.setPrefHeight(95);
-        pane.setPrefWidth(200);
+        pane.setPrefWidth(250);
 
         Button button = new Button();
         Font.loadFont(getClass().getResourceAsStream("/fonts/Arial Black.ttf"), 12);
@@ -330,8 +340,8 @@ public class ControllerQuadro {
         button.setStyle("-fx-background-radius: 20px");
         button.setStyle("-fx-font-family: ArialBlack");
         button.prefHeight(173);
-        button.prefWidth(80);
-        button.setPrefSize(173,80);
+        button.prefWidth(120);
+        button.setPrefSize(193,80);
         button.setLayoutX(8);
         button.setLayoutY(19);
         button.setStyle("-fx-border-color:  #000000");
@@ -357,19 +367,18 @@ public class ControllerQuadro {
         Label atividade = new Label(nomeAtividade +" - "+ percentAtv + "%");
         atividade.setLayoutX(14);
         atividade.setLayoutY(0);
-        nomeResponsa.setText(acao.getNome()+" - " +acao.getResponsavel() + " - " + acao.getDataDeInicio().datesUntil(acao.getDataDeTermino()).count()+ " dias" + " - " +
-                acao.atualizaPercentualPorData()+"%");
+        nomeResponsa.setText(acao.getNome()+" - " +acao.getDepartamento() + " - " +acao.getResponsavel() + " - "+ acao.getDataDeInicio().datesUntil(acao.getDataDeTermino()).count()+ " dias" );
         dataIn.setText(acao.retornaStringInicio());
-        dataOut.setText(acao.retornaStringFim());
+        dataOut.setText(acao.retornaStringFim() +" - "+ acao.atualizaPercentualPorData()+"%");
 
-        if(acao.getDataDeInicio().isAfter(LocalDate.now())){
+        if(atraso == 0){
             status.setText("No prazo...");
         }
-        else {
+        else if (atraso == 1) {
             status.setText("Atrasado");
             status.setTextFill(Paint.valueOf("red"));
-            acao.setAtrasao(true);
-
+        } else if (atraso ==2) {
+            status.setText("Finalizado");
         }
         pane.getChildren().add(button);
         pane.getChildren().add(nomeResponsa);
@@ -425,12 +434,20 @@ public class ControllerQuadro {
             FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("TelaCadastroDeProjetos.fxml"));
             Parent root = loader.load();
 
+            int comboxEmp = 0;
+
             CadastroProjeto cadastroProjeto = loader.getController();
             cadastroProjeto.setQuadro(quadro);
 
+            for (int n = 0; n< quadro.getUsers().size(); n++){
+                if(quadro.retornaProjeto().get(index).getEmpresa().equals(quadro.getEmpresas().get(n))){
+                    comboxEmp = n;
+                }
+            }
             cadastroProjeto.tNomeP.setText(quadro.retornaProjeto().get(index).getNome());
             cadastroProjeto.tDataFinalP.setValue(quadro.retornaProjeto().get(index).getDataDeTermino());
             cadastroProjeto.tDatainicioP.setValue(quadro.retornaProjeto().get(index).getDataDeInicio());
+            cadastroProjeto.comBoxE.getSelectionModel().select(comboxEmp);
             cadastroProjeto.setOrigin(index);
 
             Stage novaJanela = new Stage();
@@ -443,9 +460,20 @@ public class ControllerQuadro {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
 
+    @FXML
+    protected void editAtv(){
+    
+        
+    }
 
+    @FXML
+    protected void rmvAcao(){
 
+        quadro.retornaProjeto().remove(index);
+        Stage stage = (Stage) buttonRmv.getScene().getWindow();
+        stage.close();
     }
 
 

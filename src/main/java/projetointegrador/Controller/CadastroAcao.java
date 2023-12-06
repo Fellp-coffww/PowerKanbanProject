@@ -6,10 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import projetointegrador.Model.Entities.*;
 import projetointegrador.visual.HelloApplication;
@@ -27,6 +24,9 @@ public class CadastroAcao {
     private int percent;
 
     // Referências aos elementos da interface gráfica (FXML)
+
+    @FXML
+    protected Label DataAtv;
 
     @FXML
     protected ComboBox comBoxA; // ComboBox para atividades
@@ -95,6 +95,16 @@ public class CadastroAcao {
         comBoxA.setItems(observableList);
     }
 
+    @FXML
+    protected void atualizaLabelAtv(){
+
+        DataAtv.setText(quadro.retornaProjeto().get(index).retornaAtividade().get(comBoxA.getSelectionModel().getSelectedIndex()).retornaStringInicio()
+        + " - " + quadro.retornaProjeto().get(index).retornaAtividade().get(comBoxA.getSelectionModel().getSelectedIndex()).retornaStringFim());
+
+        DataAtv.setLayoutX(120);
+        DataAtv.setPrefWidth(300);
+
+    }
 
     @FXML
     protected void saveAcao(){
@@ -258,8 +268,6 @@ public class CadastroAcao {
     protected void AttCbResp(){
 
     }
-
-
 
     @FXML
     protected void BotaoVoltar(){

@@ -17,6 +17,8 @@ public class Projeto {
     private int percentual; // Percentual de conclusão do projeto
     private String nome; // Nome do projeto
 
+    private String empresa;
+
     // Método para adicionar uma atividade à lista de atividades do projeto
     public void addObject(Atividade atividade) {
         lista.add(atividade);
@@ -88,6 +90,14 @@ public class Projeto {
         this.nome = nome;
     }
 
+    public String getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(String empresa) {
+        this.empresa = empresa;
+    }
+
     // Método toString para obter o nome do projeto como representação de string
     @Override
     public String toString() {
@@ -103,4 +113,6 @@ public class Projeto {
         String temp = this.dataDeTermino.getDayOfMonth()+"/"+this.dataDeTermino.getMonthValue()+"/"+this.dataDeTermino.getYear();
         return temp;
     }
+
+
 }

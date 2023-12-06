@@ -63,13 +63,30 @@ public class Acao {
 
     // Método para atualizar o percentual baseado nas datas de início e término
 
-    public int atualizaPercentualPorData() {
+    public double atualizaPercentualPorData() {
 
         if (dataDeTermino.getDayOfMonth() - dataDeInicio.getDayOfMonth() != 0) {
 
-            return (LocalDate.now().getDayOfMonth() - dataDeInicio.getDayOfMonth() * 100) /
-                    (dataDeTermino.getDayOfMonth() - dataDeInicio.getDayOfMonth());
+            LocalDate agora = LocalDate.now();
 
+            double resposta = 0;
+
+            try {
+
+            if (agora.isAfter(dataDeInicio)) {
+                resposta =  dataDeInicio.datesUntil(agora).count() * 100 / dataDeInicio.datesUntil(dataDeTermino).count();
+            }
+            else {
+                resposta = 0;
+
+            }
+            }
+            catch (Exception e){
+                resposta = 0;
+            }
+            finally {
+                return resposta;
+            }
         } else
             return 100;
 

@@ -36,13 +36,13 @@ public class CadastroAtividade {
     private Button  bclickVoltar;
 
     @FXML
-    private TextField tNomeA; // Campo de texto para o nome da atividade
+    protected TextField tNomeA; // Campo de texto para o nome da atividade
 
     @FXML
-    private DatePicker tDatainicioA; // Campo de texto para a data de início da atividade
+    protected DatePicker tDatainicioA; // Campo de texto para a data de início da atividade
 
     @FXML
-    private DatePicker tDataFinalA; // Campo de texto para a data de finalização da atividade
+    protected DatePicker tDataFinalA; // Campo de texto para a data de finalização da atividade
 
     // Método para atualizar o ComboBox com os projetos disponíveis
 

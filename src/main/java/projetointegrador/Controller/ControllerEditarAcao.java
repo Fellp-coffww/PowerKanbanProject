@@ -26,6 +26,8 @@ public class ControllerEditarAcao {
 
     private int indexAction;
 
+    @FXML
+    protected Button buttonRmv;
 
     @FXML
     protected Label nomeAcao;
@@ -131,6 +133,14 @@ public class ControllerEditarAcao {
 
     }
 
+    @FXML
+    protected void rmvAcao(){
+
+        quadro.retornaProjeto().get(indexPrj).retornaAtividade().get(indexAtv).retornaAcao().remove(indexAction);
+        Stage stage = (Stage) BotaoFecharAba.getScene().getWindow();
+        stage.close();
+
+    }
 
 
     public Quadro getQuadro() {

@@ -18,10 +18,14 @@ public class HelloApplication extends Application {
         Quadro quadro = new Quadro();
         quadro.addUsers(new User("admin","admin", ""));
         quadro.getDepartamentos().add("RH");
+ quadro.getEmpresas().add("tse");
+        /*
+        quadro.getDepartamentos().add("RH");
         quadro.addObject(new Projeto(LocalDate.now(), LocalDate.now(),"projeto01"));
         quadro.addObject(new Projeto(LocalDate.now(), LocalDate.now(),"projeto02"));
         quadro.addObject(new Projeto(LocalDate.now(), LocalDate.now(),"projeto03"));
         quadro.addObject(new Projeto(LocalDate.now(), LocalDate.now(),"projeto04"));
+        quadro.addObject(new Projeto(LocalDate.now(), LocalDate.now(),"projeto05"));
         quadro.retornaProjeto().get(0).addObject(new Atividade(LocalDate.now(),LocalDate.now(), "Atividade 01"));
         quadro.retornaProjeto().get(1).addObject(new Atividade(LocalDate.now(),LocalDate.now(), "Atividade 02"));
         Acao acaoTeste = new Acao(LocalDate.now(),LocalDate.now(), "Açao01","Fellipe","TI");
